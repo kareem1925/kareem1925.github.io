@@ -18,13 +18,21 @@
   <url>
     <loc>https://example.com/publication/elmahalawy-2021167793/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
+    <loc>https://example.com/tag/genetic-programming/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+  <url>
+    <loc>https://example.com/tag/heterojunction-photodiode/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+  <url>
     <loc></loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
-    <loc>https://example.com/tag/organic-semiconductors-heterojunction-photodiode-machine-learning-genetic-programming-quantum-machine-learning/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+    <loc>https://example.com/tag/machine-learning/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+  <url>
+    <loc>https://example.com/tag/organic-semiconductors/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
     <loc>https://example.com/publication_types/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
     <loc>https://example.com/publication/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+  <url>
+    <loc>https://example.com/tag/quantum-machine-learning/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
     <loc>https://example.com/tags/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
@@ -50,7 +58,15 @@
   <url>
     <loc></loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
+    <loc>https://example.com/tag/graph-coloring/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+  <url>
     <loc></loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+  <url>
+    <loc>https://example.com/tag/qaoa/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+  <url>
+    <loc>https://example.com/tag/quantum-annealing/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
+  <url>
+    <loc>https://example.com/tag/quantum-circuits/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
     <loc>https://example.com/publication/9259934/</loc><lastmod>2022-02-11T08:38:50+02:00</lastmod></url>
   <url>
