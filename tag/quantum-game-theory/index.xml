@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quantum Game Theory | Kareem H. El-Safty</title>
+    <link>https://example.com/tag/quantum-game-theory/</link>
+      <atom:link href="https://example.com/tag/quantum-game-theory/index.xml" rel="self" type="application/rss+xml" />
+    <description>Quantum Game Theory</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://example.com/media/icon_hu0fd391f883fe35a1cb58c92d07485b6d_5976_512x512_fill_lanczos_center_2.png</url>
+      <title>Quantum Game Theory</title>
+      <link>https://example.com/tag/quantum-game-theory/</link>
+    </image>
+    
+    <item>
+      <title>Calculating Nash equilibrium and Nash bargaining solution on quantum annealers</title>
+      <link>https://example.com/publication/https-doi-org-10-48550-arxiv-2112-12583/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/publication/https-doi-org-10-48550-arxiv-2112-12583/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

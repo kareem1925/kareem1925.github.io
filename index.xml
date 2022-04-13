@@ -5,12 +5,20 @@
     <link>https://example.com/</link>
       <atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     <description>Kareem H. El-Safty</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://example.com/media/icon_hu0fd391f883fe35a1cb58c92d07485b6d_5976_512x512_fill_lanczos_center_2.png</url>
       <title>Kareem H. El-Safty</title>
       <link>https://example.com/</link>
     </image>
+    
+    <item>
+      <title>Calculating Nash equilibrium and Nash bargaining solution on quantum annealers</title>
+      <link>https://example.com/publication/https-doi-org-10-48550-arxiv-2112-12583/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://example.com/publication/https-doi-org-10-48550-arxiv-2112-12583/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Classical and quantum regression analysis for the optoelectronic performance of NTCDA/p-Si UV photodiode</title>
