@@ -60,12 +60,12 @@ education:
   - degree: Pre-Master in Computer Engineering
     institution: Suez Canal University
     start: 2019-01-01
-    end: 2020-12-31
+    end: 2020-06-30
     summary: Coursework bridging Communications, Electronics, and Computer Engineering.
   - degree: B.Sc. in Electrical, Electronics and Communications Engineering
     institution: Suez Canal University
-    start: 2012-01-01
-    end: 2017-12-31
+    start: 2012-09-01
+    end: 2017-07-31
     summary: |
       Thesis: *Humanoid robot using voice and object recognition.*
   - degree: Artificial Intelligence Nanodegree
@@ -110,7 +110,7 @@ experience:
       - Ran customer discovery, wrote PRDs, managed milestones to production.
       - Built and led the intern program.
 
-  - role: Researcher
+  - role: Organizer & Content Lead
     org: Alexandria Quantum Computing Group
     start: 2019-11-01
     summary: |
