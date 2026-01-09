@@ -13,7 +13,7 @@ status:
   icon: "🔬"
 role: Research Assistant
 avatar:
-  filename: avatar.jpg
+  filename: avatar.png
 bio: |
   Kareem is a quantum machine learning researcher with a unique interdisciplinary scientific background. He has a B.Sc in Communications & Electronics Engineering alongside an interesting record of online courses in machine learning, physics, and programming. He has around 4 years of experience in Computer and Machine Vision systems at DevisionX and two years of experience in being a machine learning instructor.
 
@@ -42,9 +42,9 @@ links:
   - icon: brands/github
     url: https://github.com/kareem1925
   - icon: brands/linkedin
-    url: ""
+    url: https://www.linkedin.com/in/kareemelsafty/
   - icon: academicons/google-scholar
-    url: ""
+    url: https://scholar.google.com/citations?user=GYfnTAIAAAAJ&hl=en
 
 interests:
   - Artificial Intelligence
