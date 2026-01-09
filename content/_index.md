@@ -70,6 +70,17 @@ sections:
       columns: '2'
 
   - block: collection
+    id: projects
+    content:
+      title: Projects & Software
+      filters:
+        folders:
+          - projects
+    design:
+      view: card
+      columns: 2
+
+  - block: collection
     id: papers
     content:
       title: Featured Publications

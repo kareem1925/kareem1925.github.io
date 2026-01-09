@@ -11,185 +11,176 @@ name:
 postnominals: []
 status:
   icon: ""
-role: Research Assistant
+
+role: Quantum Software Engineer
 avatar:
   filename: me.png
+
 bio: |
-  Kareem is a quantum machine learning researcher with a unique interdisciplinary scientific background. He has a B.Sc in Communications & Electronics Engineering alongside an interesting record of online courses in machine learning, physics, and programming. He has around 4 years of experience in Computer and Machine Vision systems at DevisionX and two years of experience in being a machine learning instructor.
-
-  Alongside his machine learning career, he taught himself about quantum computing and managed to become a researcher at the Alexandria Quantum Computing group. Then he became a Qiskit Advocate. After that, he earned a position as a research assistant at Wigner Research Centre for Physics to focus on Photonic Quantum Computation.
-
-  Currently, he is doing two master's degrees: an MSc in Quantum Computing Technologies at Universidad Politécnica de Madrid that will finish later in 2022, and the other one is in Computer Engineering at Suez Canal University that is expected to be finished in 2023.
-
-  In short, I love Physics and I'm aspiring to be a theoretical physicist one day!
-
-  Right now, I'm involved in developing a quantum photonic simulator called Piquasso, I'm mostly interested in quantum feature maps and their profound implications on quantum variational circuits, and I'm open to collaborate.
+  Quantum software engineer with a photonics backbone. I build power-aware MZI pipelines and CV/Kerr kernels, ship open-source tools (PhotonWeave, KTQ; contributor to Piquasso), and take experiments from notebook to AWS Braket. Ex AI team lead with production ML wins (face verification, anti-spoofing, OCR, industrial vision), former Qiskit Advocate, and active mentor/community builder (QEgypt, Alexandria QCG).
 
 affiliations:
+  - name: Technical University of Munich (TUM)
+    url: https://www.tum.de/
   - name: Wigner Research Centre for Physics
     url: https://wigner.hu/
   - name: Alexandria Quantum Computing Group
     url: ""
   - name: QEgypt
-    url: ""
+    url: https://qworld.net/qegypt
 
 links:
   - icon: at-symbol
-    url: "mailto:kareem@example.com"
+    url: "mailto:kareemessafty@gmail.com"
     label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/kero_qml
-  - icon: brands/github
-    url: https://github.com/kareem1925
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/kareemelsafty/
+  - icon: brands/github
+    url: https://github.com/kareem1925
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=GYfnTAIAAAAJ&hl=en
+  - icon: brands/x
+    url: https://twitter.com/kero_qml
 
 interests:
-  - Artificial Intelligence
   - Quantum Machine Learning
-  - Quantum Computing
-  - Quantum Photonics
-  - Computer Vision
-  - Kernel Theory
-  - AutoML
+  - Photonics & QML
+  - CV/Kerr Kernels
+  - MZI Calibration
+  - JAX & Numerics
+  - Cloud Quantum Computing
 
 education:
-  - degree: MSc in Quantum Computing Technologies
+  - degree: M.Sc. in Quantum Computing Technologies
     institution: Universidad Politécnica de Madrid
     start: 2021-01-01
     end: 2022-12-31
-    summary: ""
-  - degree: MSc in Computer Engineering
+    summary: |
+      Thesis: *Quantum continuous variable kernels for QML.*
+  - degree: Pre-Master in Computer Engineering
     institution: Suez Canal University
-    start: 2020-01-01
-    end: 2023-12-31
-    summary: ""
+    start: 2019-01-01
+    end: 2020-12-31
+    summary: Coursework bridging Communications, Electronics, and Computer Engineering.
+  - degree: B.Sc. in Electrical, Electronics and Communications Engineering
+    institution: Suez Canal University
+    start: 2012-01-01
+    end: 2017-12-31
+    summary: |
+      Thesis: *Humanoid robot using voice and object recognition.*
   - degree: Artificial Intelligence Nanodegree
     institution: Udacity
     start: 2018-01-01
     end: 2018-12-31
-    summary: ""
-  - degree: BSc in Communications & Electronics Engineering
-    institution: Suez Canal University
-    start: 2013-01-01
-    end: 2017-12-31
-    summary: ""
 
 experience:
-  - role: Research Assistant
+  - role: Researcher, Quantum Machine Learning
+    org: Technical University of Munich (TUM)
+    start: 2022-11-01
+    end: 2025-07-31
+    summary: |
+      - Calibrated reconfigurable MZI photonic processors with energy optimization; improved transform fidelity while minimizing heater power (*Optics Express 2025*).
+      - Designed and benchmarked CV/Kerr kernels; integrated with JAX/NumPy for fast sweeping and analysis.
+      - Explored joint detection receivers and energy-aware quantum communication; collaborated across physics and platform teams.
+      - Built reproducible research stacks (tests, docs, CI) and CLI tooling; mentored two MSc students end-to-end.
+
+  - role: Research Assistant (Quantum Computing)
     org: Wigner Research Centre for Physics
     start: 2020-04-01
+    end: 2022-05-31
     summary: |
-      Quantum computing and informatics research group led by Zoltán Zimborás.
-      - Review, document new Quantum Machine Learning algorithms
-      - Learnt and used Continuous Variable (CV) for Optimization Problems
-      - Built quantum simulator for CV systems - Piquasso
+      - Continuous-variable photonic simulation and QML experiments.
+      - Contributor to the Piquasso simulator and documentation.
 
-  - role: Researcher, Quantum Computing
-    org: Dark Star Quantum Lab Inc
-    start: 2022-04-01
+  - role: Machine Learning Instructor (Freelance)
+    org: Information Technology Institute (ITI)
+    start: 2021-08-01
     summary: |
-      - Developed code for Non-Cooperative game theory and Nash equilibrium paper for quantum annealing
-      - Investigating Gaussian Boson Sampling for optimization problems
+      - Taught supervised/unsupervised ML; designed labs and assessments.
+      - Maintained calendars and materials.
+
+  - role: AI Team Leader
+    org: DevisionX
+    start: 2018-07-01
+    end: 2021-11-30
+    summary: |
+      - Delivered ML systems directly with business clients: scoped requirements, deployed to embedded/DSP/production.
+      - Projects: face verification and anti-spoofing, Arabic OCR, and industrial machine vision pipelines.
+      - Implemented AutoML (Optuna/AutoKeras/KerasTuner) and custom loss functions.
+      - Ran customer discovery, wrote PRDs, managed milestones to production.
+      - Built and led the intern program.
 
   - role: Researcher
     org: Alexandria Quantum Computing Group
     start: 2019-11-01
     summary: |
-      Led by Ahmed Younes at Alexandria University.
-      - Organized Alexandria Quantum Computing Winter School 2021 (AQCWS21)
-      - Conducted sessions on Qiskit
-      - Co-Moderated quantum meetups (Hypatia Series, Washington Quantum Computing)
+      - Organized Alexandria Quantum Computing Winter School 2021 (AQCWS21).
+      - Conducted sessions on Qiskit.
+      - Co-Moderated quantum meetups.
 
   - role: Co-Founder
     org: QEgypt
     start: 2021-04-01
     summary: |
-      - Coordination of QEgypt Young Researcher Program 2022 (QEYR22)
-      - Designing quantum challenges for QWorld open source education
-      - Mentoring new members in quantum machine learning
-
-  - role: Artificial Intelligence Instructor
-    org: Information Technology Institute (ITI)
-    start: 2021-08-01
-    summary: Taught supervised and unsupervised learning algorithms.
-
-  - role: AI Team Leader
-    org: DevisionX
-    start: 2018-07-01
-    end: 2022-01-31
-    summary: |
-      - Design, train, and optimize Deep Neural Networks for embedded DSP platforms
-      - Facial Recognition systems, Arabic OCR Systems
-      - Developed Auto AI tools such as Tuba
-      - Leading the Machine Learning Interns program
-
-  - role: AI Engineer (Internship)
-    org: EPITA
-    start: 2020-10-01
-    end: 2021-02-28
-    summary: Learning to be a Machine Learning instructor. Fully funded by ITI.
-
-  - role: Machine Learning Specialist (Internship)
-    org: AWS
-    start: 2020-09-01
-    end: 2021-02-28
-    summary: 6 months internship from MCIT.
+      - National quantum-education chapter (events, workshops, mentoring).
+      - Design quantum challenges for QWorld.
 
 skills:
-  - name: Machine Learning
+  - name: Programming
     items:
-      - label: TensorFlow
-        level: 5
-      - label: PyTorch
-        level: 5
-      - label: Scikit-Learn
-        level: 5
-      - label: Keras
-        level: 4
-      - label: OpenCV
-        level: 4
-      - label: Jax
-        level: 4
-  - name: Quantum Computing
+      - name: Python (Advanced)
+      - name: C++ (Beg-Int)
+      - name: Git & CI/CD
+      - name: Docker & Linux
+      - name: VS Code
+  - name: ML & Math
     items:
-      - label: Qiskit
-        level: 5
-      - label: PennyLane
-        level: 4
-      - label: StrawberryFields
-        level: 4
-      - label: Cirq
-        level: 4
+      - name: scikit-learn (Expert)
+      - name: TensorFlow/Keras
+      - name: JAX & Optuna
+      - name: Custom Losses/Gradients
+  - name: Quantum SDKs
+    items:
+      - name: Piquasso & PhotonWeave
+      - name: Qiskit
+      - name: PennyLane
+      - name: Strawberry Fields
+      - name: AWS Braket
+  - name: Photonics & QML
+    items:
+      - name: MZI Calibration
+      - name: CV/Kerr Kernels
+      - name: Photonic Simulation
+      - name: Joint Detection
+  - name: Cloud
+    items:
+      - name: AWS (EC2, Braket)
+      - name: GCP
 
 languages:
   - name: English
     level: 5
-    label: Fluent
+    label: Native/Bilingual (C2)
   - name: Arabic
     level: 5
-    label: Native
+    label: Native (C2)
+  - name: German
+    level: 1
+    label: Beginner (A1)
 
 awards:
-  - title: Qiskit Developer
-    awarder: IBM
-    date: "2021-11-01"
-    summary: ""
   - title: Qiskit Advocate
     awarder: IBM
     date: "2020-09-01"
-    summary: ""
+  - title: AWS Certified Machine Learning — Specialty
+    awarder: AWS
+    date: "2021-01-01"
   - title: Scholarship for MSc in Quantum Computing
     awarder: Universidad Politécnica de Madrid
     date: "2020-09-01"
-    summary: ""
-  - title: IBM Quantum Challenge
-    awarder: IBM
-    date: "2020-05-01"
-    summary: ""
-  - title: Artificial Intelligence Nanodegree Scholarship
+  - title: Udacity AI Nanodegree
     awarder: Udacity
     date: "2018-08-01"
-    summary: Scholarship awarded for this Nanodegree on Udacity.
+  - title: Deep Learning Specialization
+    awarder: Coursera
+    date: "2018-01-01"
