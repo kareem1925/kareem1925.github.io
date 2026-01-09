@@ -2,115 +2,192 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr. Alex Johnson
-  given: Alex
-  family: Johnson
-  alternate: ''  # Example: 王伟
-  pronunciation: ''  # Example: Wáng Wěi
+  display: Kareem H. El-Safty
+  given: Kareem H.
+  family: El-Safty
+  alternate: ""
+  pronunciation: ""
   pronouns: he/him
-postnominals:
-  - PhD
-  - MIEEE
+postnominals: []
 status:
-  icon: "☕️"
-role: Senior AI Research Scientist
+  icon: "🔬"
+role: Research Assistant
 bio: |
-  Alex Johnson is a Senior AI Research Scientist at Meta AI. His research
-  has been published in top conferences like NeurIPS and ICML, with over
-  10,000 citations. Alex is passionate about pushing the boundaries of AI
-  while ensuring ethical development.
+  Kareem is a quantum machine learning researcher with a unique interdisciplinary scientific background. He has a B.Sc in Communications & Electronics Engineering alongside an interesting record of online courses in machine learning, physics, and programming. He has around 4 years of experience in Computer and Machine Vision systems at DevisionX and two years of experience in being a machine learning instructor.
+
+  Alongside his machine learning career, he taught himself about quantum computing and managed to become a researcher at the Alexandria Quantum Computing group. Then he became a Qiskit Advocate. After that, he earned a position as a research assistant at Wigner Research Centre for Physics to focus on Photonic Quantum Computation.
+
+  Currently, he is doing two master's degrees: an MSc in Quantum Computing Technologies at Universidad Politécnica de Madrid that will finish later in 2022, and the other one is in Computer Engineering at Suez Canal University that is expected to be finished in 2023.
+
+  In short, I love Physics and I'm aspiring to be a theoretical physicist one day!
+
+  Right now, I'm involved in developing a quantum photonic simulator called Piquasso, I'm mostly interested in quantum feature maps and their profound implications on quantum variational circuits, and I'm open to collaborate.
 
 affiliations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: Wigner Research Centre for Physics
+    url: https://wigner.hu/
+  - name: Alexandria Quantum Computing Group
+    url: ""
+  - name: QEgypt
+    url: ""
 
 links:
   - icon: at-symbol
-    url: mailto:alex.johnson@example.com
+    url: "mailto:kareem@example.com"
     label: E-mail Me
   - icon: brands/x
-    url: https://x.com/example
+    url: https://twitter.com/kero_qml
   - icon: brands/github
-    url: https://github.com/example
+    url: https://github.com/kareem1925
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/example/
+    url: ""
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=example
-  - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: ""
 
 interests:
-  - Large Language Models
+  - Artificial Intelligence
+  - Quantum Machine Learning
+  - Quantum Computing
+  - Quantum Photonics
   - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Kernel Theory
+  - AutoML
 
 education:
-  - degree: PhD Computer Science
-    institution: Stanford University
-    start: 2015-09-01
-    end: 2019-06-30
-    summary: |
-      Thesis on scaling laws for neural language models. Published 5 papers in NeurIPS and ICML.
-    button:
-      text: Download dissertation
-      url: /resume.pdf
-      icon: hero/arrow-down-tray
-  - degree: MS Computer Science
-    institution: Carnegie Mellon University
-    start: 2013-09-01
-    end: 2015-05-31
-  - degree: BS Computer Science
-    institution: MIT
-    start: 2009-09-01
-    end: 2013-05-31
+  - degree: MSc in Quantum Computing Technologies
+    institution: Universidad Politécnica de Madrid
+    start: 2021-01-01
+    end: 2022-12-31
+    summary: ""
+  - degree: MSc in Computer Engineering
+    institution: Suez Canal University
+    start: 2020-01-01
+    end: 2023-12-31
+    summary: ""
+  - degree: Artificial Intelligence Nanodegree
+    institution: Udacity
+    start: 2018-01-01
+    end: 2018-12-31
+    summary: ""
+  - degree: BSc in Communications & Electronics Engineering
+    institution: Suez Canal University
+    start: 2013-01-01
+    end: 2017-12-31
+    summary: ""
 
 experience:
-  - role: Senior AI Research Scientist
-    org: Meta AI
-    start: 2020-01-01
+  - role: Research Assistant
+    org: Wigner Research Centre for Physics
+    start: 2020-04-01
     summary: |
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models.
-    button:
-      text: View portfolio
-      url: /
-      icon: hero/arrow-down-tray
-  - role: AI Research Intern
-    org: OpenAI
-    start: 2019-06-01
-    end: 2019-12-31
+      Quantum computing and informatics research group led by Zoltán Zimborás.
+      - Review, document new Quantum Machine Learning algorithms
+      - Learnt and used Continuous Variable (CV) for Optimization Problems
+      - Built quantum simulator for CV systems - Piquasso
+
+  - role: Researcher, Quantum Computing
+    org: Dark Star Quantum Lab Inc
+    start: 2022-04-01
     summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+      - Developed code for Non-Cooperative game theory and Nash equilibrium paper for quantum annealing
+      - Investigating Gaussian Boson Sampling for optimization problems
+
+  - role: Researcher
+    org: Alexandria Quantum Computing Group
+    start: 2019-11-01
+    summary: |
+      Led by Ahmed Younes at Alexandria University.
+      - Organized Alexandria Quantum Computing Winter School 2021 (AQCWS21)
+      - Conducted sessions on Qiskit
+      - Co-Moderated quantum meetups (Hypatia Series, Washington Quantum Computing)
+
+  - role: Co-Founder
+    org: QEgypt
+    start: 2021-04-01
+    summary: |
+      - Coordination of QEgypt Young Researcher Program 2022 (QEYR22)
+      - Designing quantum challenges for QWorld open source education
+      - Mentoring new members in quantum machine learning
+
+  - role: Artificial Intelligence Instructor
+    org: Information Technology Institute (ITI)
+    start: 2021-08-01
+    summary: Taught supervised and unsupervised learning algorithms.
+
+  - role: AI Team Leader
+    org: DevisionX
+    start: 2018-07-01
+    end: 2022-01-31
+    summary: |
+      - Design, train, and optimize Deep Neural Networks for embedded DSP platforms
+      - Facial Recognition systems, Arabic OCR Systems
+      - Developed Auto AI tools such as Tuba
+      - Leading the Machine Learning Interns program
+
+  - role: AI Engineer (Internship)
+    org: EPITA
+    start: 2020-10-01
+    end: 2021-02-28
+    summary: Learning to be a Machine Learning instructor. Fully funded by ITI.
+
+  - role: Machine Learning Specialist (Internship)
+    org: AWS
+    start: 2020-09-01
+    end: 2021-02-28
+    summary: 6 months internship from MCIT.
 
 skills:
-  - name: Technical Skills
+  - name: Machine Learning
     items:
-      - label: Python
+      - label: TensorFlow
         level: 5
-      - label: Machine Learning
+      - label: PyTorch
         level: 5
-      - label: Cloud Computing
+      - label: Scikit-Learn
+        level: 5
+      - label: Keras
         level: 4
-  - name: Research & Communication
+      - label: OpenCV
+        level: 4
+      - label: Jax
+        level: 4
+  - name: Quantum Computing
     items:
-      - label: Academic Writing
+      - label: Qiskit
         level: 5
-      - label: Conference Presentations
+      - label: PennyLane
         level: 4
-      - label: Grant Proposals
+      - label: StrawberryFields
+        level: 4
+      - label: Cirq
         level: 4
 
 languages:
   - name: English
     level: 5
-    label: Native
-  - name: Spanish
-    level: 4
     label: Fluent
+  - name: Arabic
+    level: 5
+    label: Native
 
 awards:
-  - title: Best Paper Award
-    awarder: NeurIPS
-    date: "2022-12-01"
-    summary: Awarded for groundbreaking work on efficient training of large models.
-    icon: hero/trophy
+  - title: Qiskit Developer
+    awarder: IBM
+    date: "2021-11-01"
+    summary: ""
+  - title: Qiskit Advocate
+    awarder: IBM
+    date: "2020-09-01"
+    summary: ""
+  - title: Scholarship for MSc in Quantum Computing
+    awarder: Universidad Politécnica de Madrid
+    date: "2020-09-01"
+    summary: ""
+  - title: IBM Quantum Challenge
+    awarder: IBM
+    date: "2020-05-01"
+    summary: ""
+  - title: Artificial Intelligence Nanodegree Scholarship
+    awarder: Udacity
+    date: "2018-08-01"
+    summary: Scholarship awarded for this Nanodegree on Udacity.

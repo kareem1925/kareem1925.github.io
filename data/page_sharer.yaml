@@ -1,0 +1,14 @@
+# Page Sharer Configuration
+links:
+  - name: Twitter
+    icon: brands/x
+    url: "https://twitter.com/intent/tweet?text={title}&url={url}"
+    enable: true
+  - name: LinkedIn
+    icon: brands/linkedin
+    url: "https://www.linkedin.com/shareArticle?mini=true&url={url}&title={title}"
+    enable: true
+  - name: Email
+    icon: at-symbol
+    url: "mailto:?subject={title}&body={url}"
+    enable: true
