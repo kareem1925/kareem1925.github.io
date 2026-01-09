@@ -39,7 +39,7 @@ hugoblox:
     colors:
       primary: "" # Tailwind palette name or hex (e.g., "indigo" or "#6366f1")
       secondary: ""
-      neutral: "" # Affects gray utilities (text-gray-*, bg-gray-*)
+      neutral: "zinc" # Affects gray utilities (text-gray-*, bg-gray-*)
     # Optional: Mode-specific color overrides
     colors_light: {}
     colors_dark: {}
@@ -129,7 +129,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   seo:
     # Browser tab title override (defaults to identity.name if not set)
-    title: ""
+    title: "Kareem H, El-Safty"
     # For local_business identity type only
     location:
       address:
@@ -157,7 +157,7 @@ hugoblox:
   content:
     # Math rendering
     math:
-      enable: false
+      enable: true
     # Table of contents
     toc:
       enable: true
@@ -166,7 +166,7 @@ hugoblox:
       enable: true
     # Academic citations
     citations:
-      style: apa # apa | mla | chicago | ieee
+      style: ieee # apa | mla | chicago | ieee
 
   # ────────────────────────────────────────────────────────────────────────────
   # SEARCH
@@ -184,7 +184,7 @@ hugoblox:
   # User comments system
   # ────────────────────────────────────────────────────────────────────────────
   comments:
-    enable: false
+    enable: true
     provider: "" # giscus | disqus
     giscus:
       repo: ""
@@ -261,7 +261,7 @@ hugoblox:
   # Privacy and compliance features
   # ────────────────────────────────────────────────────────────────────────────
   privacy:
-    enable: false
+    enable: true
     anonymize_analytics: true
 
   # ────────────────────────────────────────────────────────────────────────────
