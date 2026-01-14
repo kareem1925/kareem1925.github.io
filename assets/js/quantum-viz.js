@@ -228,15 +228,24 @@
     });
   }, { threshold: 0.1 });
 
+  let resizeTimeout;
   window.addEventListener('resize', () => {
-    resize();
-    photons = [];
-    const count = isProjected ? 15 : 40;
-    for (let i = 0; i < count; i++) photons.push(new Photon());
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      resize();
+      photons = [];
+      const isMobile = window.innerWidth < 768;
+      const baseCount = isMobile ? 20 : 40;
+      const count = isProjected ? (isMobile ? 8 : 15) : baseCount;
+      for (let i = 0; i < count; i++) photons.push(new Photon());
+    }, 200);
   });
 
   resize();
-  for (let i = 0; i < 40; i++) photons.push(new Photon());
+  // Initial population
+  const isMobile = window.innerWidth < 768;
+  const initialCount = isMobile ? 20 : 40;
+  for (let i = 0; i < initialCount; i++) photons.push(new Photon());
   
   observer.observe(container.parentElement);
 
