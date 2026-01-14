@@ -29,18 +29,22 @@ affiliations:
   - name: "QEgypt"
     url: "https://qworld.net/qegypt"
 links:
-  - icon: "hero/at-symbol"
+  - icon: "hero/envelope"
     url: "mailto:kareemessafty@gmail.com"
     label: "Email"
   - icon: "brands/linkedin"
     url: "https://www.linkedin.com/in/kareemelsafty/"
+    label: "LinkedIn"
   - icon: "brands/github"
     url: "https://github.com/kareem1925"
+    label: "GitHub"
   - icon: "academicons/google-scholar"
     url: "https://scholar.google.com/citations?user=GYfnTAIAAAAJ&hl=en"
+    label: "Google Scholar"
   - icon: "brands/x"
     url: "https://twitter.com/kero_qml"
-  - icon: award
+    label: "X"
+  - icon: svg/credly-logo
     url: https://www.credly.com/users/kareem-elsafty/badges
     label: Credly
 interests:
@@ -56,20 +60,16 @@ education:
     start: "2021-09-01"
     end: "2022-10-31"
     summary: "Thesis: *Quantum continuous variable kernels for QML.*\n"
-  - degree: "M.Sc. in Electrical, Electronics and Communications Engineering"
+  - degree: "Pre-Master (Bridging Communications/Electronics/Computer Engineering)"
     institution: "Suez Canal University"
-    start: "2020-01-01"
-    end: "2023-12-31"
+    start: "2019-01-01"
+    end: "2020-12-31"
     summary: "Coursework bridging Communications, Electronics, and Computer Engineering."
   - degree: "B.Sc. in Electrical, Electronics and Communications Engineering"
     institution: "Suez Canal University"
     start: "2012-09-01"
     end: "2017-07-31"
     summary: "Thesis: *Humanoid robot using voice and object recognition.*\n"
-  - degree: "Artificial Intelligence Nanodegree"
-    institution: "Udacity"
-    start: "2018-01-01"
-    end: "2018-12-31"
 experience:
   - role: "Researcher, Quantum Machine Learning"
     org: "Technical University of Munich (TUM)"
@@ -105,7 +105,7 @@ experience:
       "- Taught supervised/unsupervised ML; designed labs and assessments.
 
       - Maintained calendars and materials.\n"
-  - role: "AI Team Leader"
+  - role: "AI Team Leader / Computer Vision Engineer"
     org: "DevisionX"
     start: "2018-07-01"
     end: "2021-11-30"
@@ -119,7 +119,7 @@ experience:
       - Ran customer discovery, wrote PRDs, managed milestones to production.
 
       - Built and led the intern program.\n"
-  - role: "Organizer & Content Lead"
+  - role: "Researcher / Organizer & Content Lead"
     org: "Alexandria Quantum Computing Group"
     start: "2019-11-01"
     end: "2023-09-30"
@@ -163,6 +163,11 @@ experience:
     start: "2018-02-01"
     end: "2018-09-30"
     summary: "Supported junior engineers on embedded projects; delivered sessions on ML and AI."
+  - role: "Teacher Assistant"
+    org: "edX"
+    start: "2017-06-01"
+    end: "2017-10-31"
+    summary: "Supported course delivery and learner support."
 skills:
   - name: "Programming"
     items:
