@@ -19,6 +19,12 @@ sections:
         url: uploads/resume.pdf
     design: {}
 
+  - block: bloch-hero
+    content:
+      title: "Career Superposition"
+      subtitle: "Operating in a quantum state between classical and quantum computing"
+    design: {}
+
   - block: markdown
     id: research-focus
     content:
