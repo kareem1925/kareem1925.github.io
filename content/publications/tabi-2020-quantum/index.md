@@ -1,34 +1,36 @@
 ---
-title: 'Enhancing Quantum Machine Learning: The Power of Non-Linear Optical Reproducing
-  Kernels'
+title: Quantum optimization for the graph coloring problem with space-efficient embedding
 
 # Authors
 # A YAML list of author names
 # If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
 # write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
-- Shahram Dehdashti
-- Prayag Tiwari
+- Zsolt Tabi
 - Kareem H El-Safty
-- Peter Bruza
-- Janis Notzel
+- Zsófia Kallus
+- Péter Hága
+- Tamás Kozsik
+- Adam Glos
+- Zoltán Zimborás
 
 # Author notes (such as 'Equal Contribution')
 # A YAML list of notes for each author in the above `authors` list
 author_notes: []
 
-date: '2024-01-01'
+date: '2020-01-01'
 
 # Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2026-01-14T23:01:57.252568Z'
+publishDate: '2026-01-14T23:01:57.197652Z'
 
 # Publication type.
 # A single CSL publication type but formatted as a YAML list (for Hugo requirements).
 publication_types:
-- article-journal
+- paper-conference
 
 # Publication name and optional abbreviated publication name.
-publication: '*arXiv preprint arXiv:2407.13809*'
+publication: '*2020 IEEE International Conference on Quantum Computing and Engineering
+  (QCE)*'
 publication_short: ''
 
 doi: ''
@@ -41,7 +43,7 @@ summary: ''
 tags: []
 
 # Display this page in a list of Featured pages?
-featured: false
+featured: true
 
 # Links
 url_pdf: ''
@@ -73,7 +75,7 @@ image:
 projects: []
 links:
 - name: URL
-  url: https://doi.org/10.48550/arXiv.2407.13809
+  url: https://doi.org/10.1109/QCE49297.2020.00018
 ---
 
 Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

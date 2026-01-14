@@ -1,26 +1,25 @@
 ---
-title: 'Enhancing Quantum Machine Learning: The Power of Non-Linear Optical Reproducing
-  Kernels'
+title: Calculating Nash equilibrium on quantum annealers
 
 # Authors
 # A YAML list of author names
 # If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
 # write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
-- Shahram Dehdashti
-- Prayag Tiwari
+- Faisal Shah Khan
+- Oleksandr Okrut
+- Kevin Cannon
 - Kareem H El-Safty
-- Peter Bruza
-- Janis Notzel
+- Nada Elsokkary
 
 # Author notes (such as 'Equal Contribution')
 # A YAML list of notes for each author in the above `authors` list
 author_notes: []
 
-date: '2024-01-01'
+date: '2025-01-01'
 
 # Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2026-01-14T23:01:57.252568Z'
+publishDate: '2026-01-14T23:01:57.223475Z'
 
 # Publication type.
 # A single CSL publication type but formatted as a YAML list (for Hugo requirements).
@@ -28,7 +27,7 @@ publication_types:
 - article-journal
 
 # Publication name and optional abbreviated publication name.
-publication: '*arXiv preprint arXiv:2407.13809*'
+publication: '*Annals of Operations Research*'
 publication_short: ''
 
 doi: ''
@@ -41,7 +40,7 @@ summary: ''
 tags: []
 
 # Display this page in a list of Featured pages?
-featured: false
+featured: true
 
 # Links
 url_pdf: ''
@@ -73,7 +72,7 @@ image:
 projects: []
 links:
 - name: URL
-  url: https://doi.org/10.48550/arXiv.2407.13809
+  url: https://doi.org/10.1007/s10479-023-05700-z
 ---
 
 Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.
