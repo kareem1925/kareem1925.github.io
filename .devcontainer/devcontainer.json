@@ -6,7 +6,8 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "hugoblox.hugoblox-studio"
+        "hugoblox.hugoblox-studio",
+        "ms-vscode-remote.remote-containers"
       ]
     }
   },
