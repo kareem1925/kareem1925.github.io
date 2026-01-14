@@ -2,6 +2,9 @@
   const container = document.getElementById('quantum-canvas-container');
   if (!container) return;
 
+  // Respect user's motion preferences
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const canvas = document.createElement('canvas');
   container.appendChild(canvas);
   const ctx = canvas.getContext('2d');
@@ -12,6 +15,7 @@
   let isProjected = false;
   let animationId;
   let wavefrontRadius = 0;
+  let animationStopped = false; // Track if animation should stop permanently
 
   const mzi = {
     x: 0, y: 0, w: 0, h: 0,
@@ -53,7 +57,7 @@
       const p = this.t / 400;
       
       this.trail.unshift({x: this.x, y: this.y});
-      if (this.trail.length > 10) this.trail.pop();
+      if (this.trail.length > 5) this.trail.pop(); // Reduced from 10 to 5 for memory
 
       if (p < 0.2) {
         this.x = mzi.x - 100 + (mzi.w * 0.2 + 100) * (p / 0.2);
@@ -206,12 +210,33 @@
     }
   }
 
+  // Render a single static frame (no animation loop)
+  function renderStaticFrame() {
+    ctx.clearRect(0, 0, width, height);
+    drawMZI();
+    photons.forEach(p => { p.update(); p.draw(); });
+  }
+
   function animate() {
+    // Stop animation loop if flagged
+    if (animationStopped) return;
     if (!isIntersecting && !isProjected) return;
+    
     ctx.clearRect(0, 0, width, height);
     drawMZI();
     photons.forEach(p => { p.update(); p.draw(); });
     drawWavefront();
+    
+    // Check if wavefront animation is complete - then stop the loop
+    if (isProjected && wavefrontRadius >= Math.max(width, height) * 2.5) {
+      animationStopped = true;
+      cancelAnimationFrame(animationId);
+      animationId = null;
+      // Render final static frame
+      renderStaticFrame();
+      return;
+    }
+    
     animationId = requestAnimationFrame(animate);
   }
 
@@ -242,12 +267,17 @@
   });
 
   resize();
-  // Initial population
+  // Initial population - reduce count if user prefers reduced motion
   const isMobile = window.innerWidth < 768;
-  const initialCount = isMobile ? 20 : 40;
+  const initialCount = prefersReducedMotion ? (isMobile ? 5 : 10) : (isMobile ? 20 : 40);
   for (let i = 0; i < initialCount; i++) photons.push(new Photon());
   
-  observer.observe(container.parentElement);
+  // If user prefers reduced motion, render single static frame instead of animating
+  if (prefersReducedMotion) {
+    renderStaticFrame();
+  } else {
+    observer.observe(container.parentElement);
+  }
 
   // Interactions
   const phaseBtn = document.getElementById('phase-shift-btn');
@@ -277,6 +307,10 @@
       if (isProjected) return;
       isProjected = true;
       wavefrontRadius = 1;
+      
+      // Reduce photon count after projection for memory savings
+      const reducedCount = isMobile ? 4 : 8;
+      photons = photons.slice(0, reducedCount);
       
       stateVector.innerHTML = `<span class="text-blue-400 font-bold drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">|ψ⟩ = 1.000|0⟩</span>`;
       

@@ -60,7 +60,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   typography:
     # Font: 'sans' (Inter), 'serif' (Roboto Slab), or 'native' (system fonts)
-    font: "sans"
+    font: "native" # Using native fonts for maximum performance
     # Size: 'sm', 'md', 'lg', or 'xl' (affects base font size and scale)
     size: "md"
 
@@ -184,7 +184,7 @@ hugoblox:
   # User comments system
   # ────────────────────────────────────────────────────────────────────────────
   comments:
-    enable: true
+    enable: false # Disabled - no Giscus configuration provided
     provider: "giscus" # giscus | disqus
     giscus:
       repo: ""
@@ -219,7 +219,7 @@ hugoblox:
   # Search engine site verification codes
   # ────────────────────────────────────────────────────────────────────────────
   verification:
-    google: ""
+    google: "VdNxgGeGfmjr8T8YHIBLcNaoQdXgagoh-guA2y7jDC4"
     bing: ""
     baidu: ""
     yandex: ""
