@@ -1,0 +1,75 @@
+{{/* Block: Quantum Hero */}} {{/* Params: title, subtitle, nodes (number of
+qubits/paths) */}}
+<section
+  class="quantum-hero relative w-full h-[650px] bg-slate-900 border-b border-primary-500/30 overflow-hidden flex items-center justify-center"
+>
+  <div id="quantum-canvas-container" class="absolute inset-0 z-0 opacity-40">
+    <!-- Canvas injected by JS -->
+  </div>
+
+  <div class="relative z-10 container mx-auto px-6 text-center">
+    <div
+      class="mb-4 inline-block px-3 py-1 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-400 text-xs font-mono tracking-widest uppercase"
+    >
+      Quantum-Native Experience
+    </div>
+    <h1
+      class="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-blue-400 to-indigo-400 mb-6"
+    >
+      {{ .Block.content.title | markdownify }}
+    </h1>
+    <div
+      class="mt-8 prose prose-invert mx-auto text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed"
+    >
+      {{ .Block.content.text | markdownify }}
+    </div>
+
+    <!-- Interaction Area -->
+    <div class="mt-12 space-y-8">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <button
+          id="phase-shift-btn"
+          class="group relative px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white font-bold rounded-xl transition-all shadow-2xl shadow-primary-500/40 overflow-hidden"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.3 1.047a1 1 0 01.897.953v10.222l2.96-2.96a1 1 0 011.414 1.414l-4.674 4.675a1 1 0 01-1.414 0l-4.674-4.675a1 1 0 111.414-1.414l2.96 2.96V1.999a1 1 0 01.917-1.047a1 1 0 01.001 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            Apply Phase Shift (φ)
+          </span>
+          <div
+            class="absolute inset-0 bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+          ></div>
+        </button>
+
+        <div
+          class="font-mono text-sm text-primary-300 bg-slate-800/80 backdrop-blur-md px-6 py-4 rounded-xl border border-primary-500/30 flex items-center gap-4"
+        >
+          <span class="text-slate-500">State Vector:</span>
+          <span id="state-vector" class="text-blue-300"
+            >|ψ⟩ = 1.000|0⟩ + 0.000i|1⟩</span
+          >
+        </div>
+      </div>
+
+      <p class="text-slate-500 text-xs font-mono">
+        Interference pattern updated via Mach-Zehnder simulation
+      </p>
+    </div>
+  </div>
+</section>
+
+{{ $js := resources.Get "js/quantum-viz.js" | minify | fingerprint }}
+<script
+  src="{{ $js.RelPermalink }}"
+  integrity="{{ $js.Data.Integrity }}"
+></script>

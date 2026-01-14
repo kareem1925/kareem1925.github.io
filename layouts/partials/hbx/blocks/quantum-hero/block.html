@@ -1,0 +1,182 @@
+{{/* Block: Quantum Hero */}}
+{{ $author := site.Data.authors.me }}
+<style>
+  .quantum-social-link svg {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    fill: currentColor;
+  }
+  /* Refined handling for outline icons (Heroicons) */
+  .quantum-social-link svg.heroicon {
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+  }
+  /* Ensure brand icons don't have strokes */
+  .quantum-social-link svg.brand-icon {
+    stroke: none;
+  }
+</style>
+
+<section class="quantum-hero relative w-full h-[800px] bg-slate-900 border-b border-primary-500/30 overflow-hidden flex items-center justify-center">
+  <div id="quantum-canvas-container" class="absolute inset-0 z-0 opacity-40">
+    <!-- Canvas injected by JS -->
+  </div>
+
+  <div class="relative z-10 container mx-auto px-6">
+    <!-- Initial State: Hero Title & Controls -->
+    <div id="hero-initial-content" class="text-center transition-all duration-700">
+      <div class="mb-4 inline-block px-3 py-1 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-400 text-xs font-mono tracking-widest uppercase">
+        Quantum-Native Experience
+      </div>
+      <h1 class="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-blue-400 to-indigo-400 mb-6 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+        {{ .Block.content.title | markdownify }}
+      </h1>
+      
+      <div class="mt-8 space-y-8">
+        <div id="interaction-controls" class="flex flex-col md:flex-row items-center justify-center gap-4 transition-all duration-500">
+          <button id="phase-shift-btn" class="group relative px-6 py-3 bg-slate-800 hover:bg-slate-700 text-primary-300 font-bold rounded-lg border border-primary-500/30 transition-all overflow-hidden">
+            <span class="relative z-10 flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+              </svg>
+              Shift Phase (φ)
+            </span>
+          </button>
+
+          <button id="project-zero-btn" class="group relative px-8 py-4 bg-primary-600 hover:bg-primary-500 text-white font-bold rounded-xl transition-all shadow-2xl shadow-primary-500/40 overflow-hidden">
+            <span class="relative z-10 flex items-center gap-2 text-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+              Profile Reveal | Project |0⟩
+            </span>
+            <div class="absolute inset-0 bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+          </button>
+          
+          <div class="font-mono text-sm text-primary-300 bg-slate-800/80 backdrop-blur-md px-6 py-4 rounded-xl border border-primary-500/30 shadow-inner">
+            <span class="text-slate-500">State:</span>
+            <span id="state-vector" class="text-blue-300">|ψ⟩ = 1.000|0⟩ + 0.000|1⟩</span>
+          </div>
+        </div>
+        <p id="instruction-text" class="text-slate-400 text-sm font-mono animate-pulse tracking-wide">
+            Collapse the wavefunction to project reality
+        </p>
+      </div>
+    </div>
+
+    <!-- Projected State: Premium Profile Reveal -->
+    <div id="quantum-profile-reveal" class="hidden opacity-0 translate-y-20 transition-all duration-1000 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch bg-slate-900/60 backdrop-blur-2xl border border-white/10 p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        
+        <!-- Sidebar: Avatar & Social -->
+        <div class="lg:col-span-4 flex flex-col items-center text-center space-y-8">
+          <div class="relative group">
+            <div class="absolute -inset-2 bg-gradient-to-r from-primary-500 to-indigo-500 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+            {{ $avatar := resources.Get (printf "media/authors/me/%s" $author.avatar.filename) }}
+            {{ if not $avatar }}
+              {{ $avatar = resources.Get (printf "media/authors/%s" $author.avatar.filename) }}
+            {{ end }}
+            {{ if $avatar }}
+              <img class="relative w-56 h-56 rounded-full border-4 border-white/10 object-cover shadow-2xl" src="{{ $avatar.RelPermalink }}" alt="{{ $author.name.display }}">
+            {{ else }}
+               <div class="relative w-56 h-56 rounded-full border-4 border-white/10 bg-slate-800 flex items-center justify-center shadow-2xl">
+                 <span class="text-4xl">👨‍💻</span>
+               </div>
+            {{ end }}
+          </div>
+          
+          <div>
+            <h2 class="text-3xl font-extrabold text-white mb-2">{{ $author.name.display }}</h2>
+            <p class="text-primary-400 font-mono text-sm uppercase tracking-[0.2em] font-medium">{{ $author.role }}</p>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-3">
+            {{ range $author.links }}
+              {{ $icon_pack := "fas" }}
+              {{ $icon_name := .icon }}
+              {{ if in .icon "/" }}
+                {{ $parts := split .icon "/" }}
+                {{ $icon_pack = index $parts 0 }}
+                {{ $icon_name = index $parts 1 }}
+              {{ end }}
+              
+              {{/* Map specific classes for CSS refinement */}}
+              {{ $icon_class := "w-6 h-6" }}
+              {{ if eq $icon_pack "brands" }}{{ $icon_class = printf "%s brand-icon" $icon_class }}{{ end }}
+              {{ if eq $icon_pack "hero" }}{{ $icon_class = printf "%s heroicon" $icon_class }}{{ end }}
+
+              <a href="{{ .url }}" target="_blank" rel="noopener" class="quantum-social-link p-4 bg-white/5 hover:bg-primary-500/20 border border-white/5 rounded-2xl transition-all group scale-90 hover:scale-100 text-slate-300 hover:text-primary-400 flex items-center justify-center translate-y-2 opacity-0" title="{{ .label | default .url }}">
+                  {{ if eq $icon_pack "svg" }}
+                    <div class="w-6 h-6 flex items-center justify-center">
+                      {{ (resources.Get (printf "media/icons/svg/%s.svg" $icon_name)).Content | safeHTML }}
+                    </div>
+                  {{ else }}
+                    {{ partial "functions/get_icon" (dict "name" $icon_name "pack" $icon_pack "class" $icon_class) }}
+                  {{ end }}
+              </a>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Vertical Divider (hidden on mobile) -->
+        <div class="hidden lg:block w-px bg-white/10"></div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-7 flex flex-col justify-between">
+          <div class="space-y-10">
+            <div class="prose prose-invert max-w-none text-slate-300 text-lg leading-relaxed font-light">
+              {{ $author.bio | markdownify }}
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <!-- Interests -->
+              <div class="space-y-4">
+                <h3 class="text-xs font-black uppercase tracking-widest text-primary-500/80">Expertise</h3>
+                <ul class="space-y-3">
+                  {{ range $author.interests }}
+                    <li class="flex items-center gap-3 text-slate-200 text-sm">
+                      <div class="w-2 h-2 bg-primary-500 rounded-full shadow-[0_0_12px_rgba(59,130,246,0.6)]"></div>
+                      {{ . }}
+                    </li>
+                  {{ end }}
+                </ul>
+              </div>
+
+              <!-- Education -->
+              <div class="space-y-4">
+                <h3 class="text-xs font-black uppercase tracking-widest text-primary-500/80">Education</h3>
+                <div class="space-y-5">
+                  {{ range $author.education }}
+                    <div class="relative pl-5 border-l-2 border-primary-500/40">
+                      <p class="text-[0.95rem] font-bold text-slate-100 mb-1">{{ .degree }}</p>
+                      <p class="text-xs text-slate-500 font-medium">{{ .institution }}</p>
+                    </div>
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CV Button -->
+          {{ if .Block.content.button }}
+          <div class="mt-12 flex items-center gap-6">
+            <a href="{{ .Block.content.button.url | relURL }}" class="px-10 py-4 bg-primary-600 hover:bg-primary-500 text-white font-black rounded-2xl transition-all flex items-center gap-3 shadow-[0_10px_30px_rgba(59,130,246,0.3)] transform hover:-translate-y-1 active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                {{ .Block.content.button.text }}
+            </a>
+            <span class="text-slate-600 text-[0.65rem] font-mono italic">Site generated via Hugo & Blox</span>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ $js := resources.Get "js/quantum-viz.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>

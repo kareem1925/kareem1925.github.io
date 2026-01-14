@@ -6,9 +6,12 @@ main:
   - name: Home
     url: /
     weight: 10
-  - name: Experience
+  - name: Research
     url: /#experience
     weight: 20
+  - name: Industry
+    url: /#industry-experience
+    weight: 25
   - name: Publications
     url: /#papers
     weight: 30

@@ -1,0 +1,46 @@
+.resume-cards-fix h1,
+.resume-cards-fix h2,
+.resume-cards-fix h3,
+.resume-cards-fix h4,
+.resume-cards-fix p,
+.resume-cards-fix li {
+  line-height: 1.35;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.resume-cards-fix .card,
+.resume-cards-fix .card-body {
+  overflow: hidden;
+}
+
+.research-experience .markdown,
+.research-experience .markdown p,
+.research-experience .markdown li,
+.research-experience .markdown strong {
+  color: #e2e8f0;
+  opacity: 1;
+}
+
+.research-experience .markdown h1,
+.research-experience .markdown h2,
+.research-experience .markdown h3,
+.research-experience .markdown h4 {
+  color: #f8fafc;
+}
+
+.industry-experience .markdown,
+.industry-experience .markdown p,
+.industry-experience .markdown li,
+.industry-experience .markdown strong {
+  color: #e2e8f0;
+  opacity: 1;
+}
+
+.industry-experience .markdown h1,
+.industry-experience .markdown h2,
+.industry-experience .markdown h3,
+.industry-experience .markdown h4 {
+  color: #f8fafc;
+}
