@@ -46,32 +46,25 @@ jobs:
           TZ: Europe/Paris
         run: hugo --gc --minify --baseURL "https://kareem1925.github.io/"
 
+      - name: Check HTML and Links
+        uses: anishathalye/proof-html@v2
+        with:
+          directory: ./public
+          enforce_https: false
+          check_html: true
+          disable_external: true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
-
-  compliance:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: ./public
-      - name: HTML Proofer
-        uses: chabad360/html5validator@v1
-        with:
-          root: public/
-          disable_external: true
 
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: [build, compliance]
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
