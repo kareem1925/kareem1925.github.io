@@ -53,6 +53,7 @@ jobs:
           enforce_https: false
           check_html: true
           disable_external: true
+          validator_ignore: "Attribute .(x-|@|:).+. not allowed on element"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
