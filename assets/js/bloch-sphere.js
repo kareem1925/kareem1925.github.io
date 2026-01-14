@@ -43,9 +43,9 @@
       hotspot: 0xf97316
     },
     hotspots: [
-      { name: '|0⟩ Classical', theta: 0, phi: 0, section: '/experience/', color: 0x3b82f6, description: 'Classical ML, Computer Vision, Industry' },
-      { name: '|1⟩ Quantum', theta: Math.PI, phi: 0, section: '/experience/', color: 0x8b5cf6, description: 'Quantum Computing, Photonics, Research' },
-      { name: '|+⟩ QML', theta: Math.PI/2, phi: 0, section: '/experience/', color: 0x10b981, description: 'Quantum Machine Learning - The Bridge' },
+      { name: '|0⟩ Classical', theta: 0, phi: 0, section: '/industry/', color: 0x3b82f6, description: 'Classical ML, Computer Vision, Industry' },
+      { name: '|1⟩ Quantum', theta: Math.PI, phi: 0, section: '/research/', color: 0x8b5cf6, description: 'Quantum Computing, Photonics, Research' },
+      { name: '|+⟩ QML', theta: Math.PI/2, phi: 0, section: '/research/', color: 0x10b981, description: 'Quantum Machine Learning - The Bridge' },
       { name: '|-⟩ Skills', theta: Math.PI/2, phi: Math.PI, section: '/skills/', color: 0xef4444, description: 'Technical Skills & Expertise' },
       { name: '|+i⟩ Projects', theta: Math.PI/2, phi: Math.PI/2, section: '/#projects', color: 0x22c55e, description: 'Software & Research Projects' },
       { name: '|-i⟩ Papers', theta: Math.PI/2, phi: -Math.PI/2, section: '/publications/', color: 0xf59e0b, description: 'Publications & Papers' }
@@ -633,7 +633,7 @@
       }
     }
   }
-  }
+
 
   function showFallback(container) {
     container.innerHTML = `
