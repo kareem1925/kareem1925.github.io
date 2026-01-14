@@ -15,32 +15,186 @@
   overflow: hidden;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   DARK BACKGROUND SECTIONS - Need bright white/light text
+   Research Experience & Industry sections have bg #0f172a (slate-900)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Research Experience (dark background) */
+.research-experience,
 .research-experience .markdown,
 .research-experience .markdown p,
 .research-experience .markdown li,
-.research-experience .markdown strong {
-  color: #e2e8f0;
-  opacity: 1;
+.research-experience .prose,
+.research-experience .prose p,
+.research-experience .prose li,
+.research-experience ul li,
+#experience .prose,
+#experience .prose p,
+#experience .prose li,
+#experience ul li {
+  color: #e2e8f0 !important;
+  opacity: 1 !important;
+}
+
+.research-experience .markdown strong,
+.research-experience .prose strong,
+#experience .prose strong,
+#experience strong {
+  color: #f8fafc !important;
 }
 
 .research-experience .markdown h1,
 .research-experience .markdown h2,
 .research-experience .markdown h3,
-.research-experience .markdown h4 {
-  color: #f8fafc;
+.research-experience .markdown h4,
+.research-experience .prose h3,
+#experience h3 {
+  color: #f8fafc !important;
 }
 
+/* Industry Experience (dark background) */
+.industry-experience,
 .industry-experience .markdown,
 .industry-experience .markdown p,
 .industry-experience .markdown li,
-.industry-experience .markdown strong {
-  color: #e2e8f0;
-  opacity: 1;
+.industry-experience .prose,
+.industry-experience .prose p,
+.industry-experience .prose li,
+.industry-experience ul li,
+#industry-experience .prose,
+#industry-experience .prose p,
+#industry-experience .prose li,
+#industry-experience ul li {
+  color: #e2e8f0 !important;
+  opacity: 1 !important;
+}
+
+.industry-experience .markdown strong,
+.industry-experience .prose strong,
+#industry-experience .prose strong,
+#industry-experience strong {
+  color: #f8fafc !important;
 }
 
 .industry-experience .markdown h1,
 .industry-experience .markdown h2,
 .industry-experience .markdown h3,
-.industry-experience .markdown h4 {
-  color: #f8fafc;
+.industry-experience .markdown h4,
+.industry-experience .prose h3,
+#industry-experience h3 {
+  color: #f8fafc !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIGHT BACKGROUND SECTIONS - Need dark text
+   Research focus & Skills have bg #f8fafc (near white)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Research focus (light background) */
+#research-focus .prose,
+#research-focus .prose p,
+#research-focus .prose li,
+#research-focus .prose ul,
+#research-focus .prose ol {
+  color: #374151 !important;
+}
+
+#research-focus .prose strong,
+#research-focus .prose b {
+  color: #1f2937 !important;
+}
+
+#research-focus .prose h1,
+#research-focus .prose h2,
+#research-focus .prose h3,
+#research-focus .prose h4 {
+  color: #111827 !important;
+}
+
+#research-focus .text-gray-900 {
+  color: #111827 !important;
+}
+
+/* Skills section - LIGHT BACKGROUND (#f1f5f9) needs DARK text */
+section#skills .skills-name,
+section#skills .skills-name.text-gray-700,
+section#skills .skills-name.text-gray-300,
+section#skills span.skills-name,
+section.blox-resume-skills .skills-name,
+section.blox-resume-skills span.skills-name,
+#skills .skills-content .skills-name,
+.blox-resume-skills .skills-content .skills-name,
+section#skills [class*="text-gray"],
+section.blox-resume-skills [class*="text-gray"] {
+  color: #374151 !important;
+}
+
+/* Skills section titles/headings */
+section#skills .text-xl,
+section#skills .text-gray-900,
+section#skills .font-bold,
+section#skills div.text-xl,
+section.blox-resume-skills .text-xl,
+section.blox-resume-skills div.text-xl,
+#skills .text-gray-900,
+#skills div[class*="font-bold"] {
+  color: #111827 !important;
+}
+
+/* Main Skills heading */
+section#skills h1,
+section#skills h2,
+section#skills .mb-6,
+.blox-resume-skills h1,
+.blox-resume-skills h2 {
+  color: #111827 !important;
+}
+
+/* Skill items - all text inside skills section */
+section#skills span,
+section#skills div,
+section#skills p,
+section.blox-resume-skills span,
+section.blox-resume-skills div:not([class*="bg-"]),
+section.blox-resume-skills p {
+  color: #374151 !important;
+}
+
+/* Override Tailwind dark: variants for light background */
+section#skills .dark\:text-gray-300,
+section#skills .dark\:text-white,
+section.blox-resume-skills .dark\:text-gray-300,
+.blox-resume-skills span[class*="dark\:text-"] {
+  color: #374151 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GENERAL PROSE FIXES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Prose-slate default overrides for better contrast */
+.blox-markdown:not(.dark) .prose.prose-slate,
+.blox-markdown:not(.dark) .prose.prose-slate p,
+.blox-markdown:not(.dark) .prose.prose-slate li {
+  color: #374151 !important;
+}
+
+.blox-markdown:not(.dark) .prose.prose-slate strong {
+  color: #1f2937 !important;
+}
+
+/* Dark section prose-invert should have white text */
+.blox-markdown.dark .prose,
+.blox-markdown.dark .prose p,
+.blox-markdown.dark .prose li,
+.dark .prose,
+.dark .prose p,
+.dark .prose li {
+  color: #e2e8f0 !important;
+}
+
+.blox-markdown.dark .prose strong,
+.dark .prose strong {
+  color: #f8fafc !important;
 }

@@ -34,12 +34,12 @@ hugoblox:
     # Mode: 'light', 'dark', or 'system' (follows OS preference)
     mode: system
     # Theme pack: name from data/themes/ or { light: "x", dark: "y" } for mix-and-match
-    pack: "dracula"
+    pack: "coffee"
     # Optional: Override theme pack colors
     colors:
       primary: "" # Tailwind palette name or hex (e.g., "indigo" or "#6366f1")
       secondary: ""
-      neutral: "zinc" # Affects gray utilities (text-gray-*, bg-gray-*)
+      neutral: "slate" # Affects gray utilities (text-gray-*, bg-gray-*)
     # Optional: Mode-specific color overrides
     colors_light: {}
     colors_dark: {}
@@ -60,7 +60,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   typography:
     # Font: 'sans' (Inter), 'serif' (Roboto Slab), or 'native' (system fonts)
-    font: "native" # Using native fonts for maximum performance
+    font: "sans"
     # Size: 'sm', 'md', 'lg', or 'xl' (affects base font size and scale)
     size: "md"
 
@@ -184,7 +184,7 @@ hugoblox:
   # User comments system
   # ────────────────────────────────────────────────────────────────────────────
   comments:
-    enable: false # Disabled - no Giscus configuration provided
+    enable: true
     provider: "giscus" # giscus | disqus
     giscus:
       repo: ""
@@ -219,7 +219,7 @@ hugoblox:
   # Search engine site verification codes
   # ────────────────────────────────────────────────────────────────────────────
   verification:
-    google: "VdNxgGeGfmjr8T8YHIBLcNaoQdXgagoh-guA2y7jDC4"
+    google: ""
     bing: ""
     baidu: ""
     yandex: ""
