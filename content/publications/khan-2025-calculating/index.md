@@ -1,78 +1,30 @@
 ---
-title: Calculating Nash equilibrium on quantum annealers
-
-# Authors
-# A YAML list of author names
-# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
-# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
+title: 'Calculating Nash equilibrium on quantum annealers'
 authors:
-- Faisal Shah Khan
-- Oleksandr Okrut
-- Kevin Cannon
-- Kareem H El-Safty
-- Nada Elsokkary
-
-# Author notes (such as 'Equal Contribution')
-# A YAML list of notes for each author in the above `authors` list
-author_notes: []
-
+  - Faisal Shah Khan
+  - Oleksandr Okrut
+  - Kevin Cannon
+  - Kareem H. El-Safty
+  - Nada Elsokkary
 date: '2025-01-01'
-
-# Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2026-01-14T23:01:57.223475Z'
-
-# Publication type.
-# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
+publishDate: '2025-01-01'
 publication_types:
-- article-journal
-
-# Publication name and optional abbreviated publication name.
+  - article-journal
 publication: '*Annals of Operations Research*'
-publication_short: ''
-
-doi: ''
-
-abstract: ''
-
-# Summary. An optional shortened abstract.
-summary: ''
-
-tags: []
-
-# Display this page in a list of Featured pages?
+publication_short: '*Ann. Oper. Res.*'
+volume: '346'
+number: '2'
+pages: '1109-1126'
+abstract: 'This research implements adiabatic quantum computing on D-Wave quantum annealers to find pure strategy Nash equilibria in two-player, non-cooperative games. By formulating the problem as a Quadratic Unconstrained Binary Optimization (QUBO) task, the approach achieves improved time-to-solution performance compared to classical methods.'
+tags:
+  - Quantum Game Theory
+  - Nash Equilibrium
+  - Quantum Annealing
+  - Quadratic Unconstrained Binary Optimization
 featured: true
-
-# Links
-url_pdf: ''
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
-
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-# Publication image
-# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects: []
+projects:
+  - braket-nash
 links:
-- name: URL
-  url: https://doi.org/10.1007/s10479-023-05700-z
+  - name: DOI
+    url: https://doi.org/10.1007/s10479-023-05700-z
 ---
-
-Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

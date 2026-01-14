@@ -1,76 +1,28 @@
 ---
-title: Classical and quantum regression analysis for the optoelectronic performance
-  of NTCDA/p-Si UV photodiode
-
-# Authors
-# A YAML list of author names
-# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
-# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
+title: 'Classical and quantum regression analysis for the optoelectronic performance of NTCDA/p-Si UV photodiode'
 authors:
-- Ahmed M El-Mahalawy
-- Kareem H El-Safty
-
-# Author notes (such as 'Equal Contribution')
-# A YAML list of notes for each author in the above `authors` list
-author_notes: []
-
-date: '2021-01-01'
-
-# Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2026-01-14T23:01:57.208153Z'
-
-# Publication type.
-# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
+  - Ahmed M. El-Mahalawy
+  - Kareem H. El-Safty
+date: '2021-11-01'
+publishDate: '2021-11-01'
 publication_types:
-- article-journal
-
-# Publication name and optional abbreviated publication name.
+  - article-journal
 publication: '*Optik*'
-publication_short: ''
-
-doi: ''
-
-abstract: ''
-
-# Summary. An optional shortened abstract.
-summary: ''
-
-tags: []
-
-# Display this page in a list of Featured pages?
+publication_short: '*Optik*'
+volume: '246'
+pages: '167793'
+abstract: 'This paper details the performance of a fabricated Au/NTCDA/p-Si/Al photodiode. We evaluate three classical algorithms (KNN, ANN, GP) and a Quantum Neural Network (QNN) to predict the behavior of the fabricated device. The Continuous-Variable (CV) QNN, utilizing only one Qumode, was employed for the first time to model the photodiode performance, yielding acceptable results with the lowest parameter set.'
+tags:
+  - Machine Learning
+  - Organic Semiconductors
+  - Heterojunction Photodiode
+  - Genetic Programming
 featured: false
-
-# Links
-url_pdf: ''
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
-
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-# Publication image
-# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects: []
 links:
-- name: URL
-  url: https://doi.org/10.1016/j.ijleo.2021.167793
+  - name: DOI
+    url: https://doi.org/10.1016/j.ijleo.2021.167793
+  - name: GitHub
+    url: https://github.com/kareem1925/Classical-and-quantum-regression-analysis-for-the-optoelectronic-performance-of-NTCDA
+    icon_pack: fab
+    icon: github
 ---
-
-Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

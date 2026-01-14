@@ -1,79 +1,27 @@
 ---
 title: 'Quantum advantages for data transmission in future networks: An overview'
-
-# Authors
-# A YAML list of author names
-# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
-# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
-- Zahra Amiri
-- Shahram Dehdashti
-- Kareem H El-Safty
-- Igor Litvin
-- Pere Munar-Vallespir
-- Janis Noetzel
-
-# Author notes (such as 'Equal Contribution')
-# A YAML list of notes for each author in the above `authors` list
-author_notes: []
-
+  - Zahra Amiri
+  - Shahram Dehdashti
+  - Kareem H. El-Safty
+  - Igor Litvin
+  - Pere Munar-Vallespir
+  - Janis Noetzel
 date: '2024-01-01'
-
-# Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2026-01-14T23:01:57.230682Z'
-
-# Publication type.
-# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
+publishDate: '2024-01-01'
 publication_types:
-- article-journal
-
-# Publication name and optional abbreviated publication name.
+  - article-journal
 publication: '*Computer Networks*'
-publication_short: ''
-
-doi: ''
-
-abstract: ''
-
-# Summary. An optional shortened abstract.
-summary: ''
-
-tags: []
-
-# Display this page in a list of Featured pages?
-featured: false
-
-# Links
-url_pdf: ''
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
-
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-# Publication image
-# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects: []
+publication_short: '*Comput. Netw.*'
+volume: '254'
+pages: '110727'
+abstract: 'Reviews recent advancements in Joint Detection Receivers (JDRs) and Entanglement-Assisted (EA) data transmission links, emphasizing their potential for future networks. Highlighted techniques can significantly surpass the Shannon limit in specific scenarios, particularly where photon numbers are extremely small.'
+tags:
+  - Quantum Networking
+  - Data Transmission
+  - Communication
+featured: true
 links:
-- name: URL
-  url: https://doi.org/10.1016/j.comnet.2024.110727
+  - name: DOI
+    url: https://doi.org/10.1016/j.comnet.2024.110727
 ---
-
-Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

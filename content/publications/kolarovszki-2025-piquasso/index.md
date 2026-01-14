@@ -1,81 +1,32 @@
 ---
 title: 'Piquasso: A Photonic Quantum Computer Simulation Software Platform'
-
-# Authors
-# A YAML list of author names
-# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
-# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
 authors:
-- Zoltán Kolarovszki
-- Tomasz Rybotycki
-- Péter Rakyta
-- Ágoston Kaposi
-- Boldizsár Poór
-- Szilárd Jóczik
-- Kareem H El-Safty
-- Zoltán Zimborás
-
-# Author notes (such as 'Equal Contribution')
-# A YAML list of notes for each author in the above `authors` list
-author_notes: []
-
-date: '2025-01-01'
-
-# Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2026-01-14T23:01:57.215381Z'
-
-# Publication type.
-# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
+  - Zoltán Kolarovszki
+  - Tomasz Rybotycki
+  - Péter Rakyta
+  - Ágoston Kaposi
+  - Boldizsár Poór
+  - Szilárd Jóczik
+  - Kareem H. El-Safty
+  - Zoltán Zimborás
+date: '2025-04-15'
+publishDate: '2025-04-15'
 publication_types:
-- article-journal
-
-# Publication name and optional abbreviated publication name.
+  - article-journal
 publication: '*Quantum*'
-publication_short: ''
-
-doi: ''
-
-abstract: ''
-
-# Summary. An optional shortened abstract.
-summary: ''
-
-tags: []
-
-# Display this page in a list of Featured pages?
+publication_short: '*Quantum*'
+volume: '9'
+pages: '1708'
+abstract: 'We introduce the Piquasso quantum programming framework, a full-stack open-source software platform designed for the simulation and programming of photonic quantum computers. Piquasso offers a high-level Python programming interface, enabling users to efficiently perform quantum computing with both discrete and continuous variables. The platform further provides state-of-the-art performance through optional high-performance C++ backends and features an intuitive web-based graphical user interface.'
+tags:
+  - Quantum Computing
+  - Photonics
+  - Simulation
+  - Software
 featured: true
-
-# Links
-url_pdf: ''
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
-
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-# Publication image
-# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects: []
+projects:
+  - piquasso-project
 links:
-- name: URL
-  url: https://doi.org/10.22331/q-2025-04-15-1708
+  - name: DOI
+    url: https://doi.org/10.22331/q-2025-04-15-1708
 ---
-
-Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.

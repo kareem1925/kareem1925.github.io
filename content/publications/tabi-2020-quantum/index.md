@@ -1,81 +1,27 @@
 ---
-title: Quantum optimization for the graph coloring problem with space-efficient embedding
-
-# Authors
-# A YAML list of author names
-# If you created a profile for a user (e.g. the default `admin` user at `content/authors/admin/`), 
-# write the username (folder name) here, and it will be replaced with their full name and linked to their profile.
+title: 'Quantum optimization for the graph coloring problem with space-efficient embedding'
 authors:
-- Zsolt Tabi
-- Kareem H El-Safty
-- Zsófia Kallus
-- Péter Hága
-- Tamás Kozsik
-- Adam Glos
-- Zoltán Zimborás
-
-# Author notes (such as 'Equal Contribution')
-# A YAML list of notes for each author in the above `authors` list
-author_notes: []
-
-date: '2020-01-01'
-
-# Date to publish webpage (NOT necessarily Bibtex publication's date).
-publishDate: '2026-01-14T23:01:57.197652Z'
-
-# Publication type.
-# A single CSL publication type but formatted as a YAML list (for Hugo requirements).
+  - Zsolt Tabi
+  - Kareem H. El-Safty
+  - Zsófia Kallus
+  - Péter Hága
+  - Tamás Kozsik
+  - Adam Glos
+  - Zoltán Zimborás
+date: '2020-10-01'
+publishDate: '2020-10-01'
 publication_types:
-- paper-conference
-
-# Publication name and optional abbreviated publication name.
-publication: '*2020 IEEE International Conference on Quantum Computing and Engineering
-  (QCE)*'
-publication_short: ''
-
-doi: ''
-
-abstract: ''
-
-# Summary. An optional shortened abstract.
-summary: ''
-
-tags: []
-
-# Display this page in a list of Featured pages?
+  - paper-conference
+publication: '*2020 IEEE International Conference on Quantum Computing and Engineering (QCE)*'
+publication_short: '*IEEE QCE 2020*'
+pages: '56-62'
+abstract: 'Current quantum computing devices have varying strengths and weaknesses depending on their architectures. We address this by introducing a novel space-efficient quantum optimization algorithm for the graph coloring problem. While our circuits are deeper than those of the standard approach, the number of required qubits is exponentially reduced in the number of colors.'
+tags:
+  - Quantum Circuits
+  - QAOA
+  - Graph Coloring
 featured: true
-
-# Links
-url_pdf: ''
-url_code: ''
-url_dataset: ''
-url_poster: ''
-url_project: ''
-url_slides: ''
-url_source: ''
-url_video: ''
-
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
-
-# Publication image
-# Add an image named `featured.jpg/png` to your page's folder then add a caption below.
-image:
-  caption: ''
-  focal_point: ''
-  preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects: ['internal-project']` links to `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects: []
 links:
-- name: URL
-  url: https://doi.org/10.1109/QCE49297.2020.00018
+  - name: DOI
+    url: https://doi.org/10.1109/QCE49297.2020.00018
 ---
-
-Add the **full text** or **supplementary notes** for the publication here using Markdown formatting.
