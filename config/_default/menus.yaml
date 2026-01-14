@@ -6,24 +6,18 @@ main:
   - name: Home
     url: /
     weight: 10
-  - name: Research
-    url: /#experience
+  - name: Experience
+    url: /experience/
     weight: 20
-  - name: Industry
-    url: /#industry-experience
-    weight: 25
-  - name: Publications
-    url: /#papers
+  - name: Skills
+    url: /skills/
     weight: 30
   - name: Projects
     url: /#projects
-    weight: 35
-  - name: Skills
-    url: /#skills
     weight: 40
-  - name: Awards
-    url: /#awards
+  - name: Publications
+    url: /publications/
     weight: 50
   - name: Courses
-    url: /#courses
+    url: /courses/
     weight: 60
