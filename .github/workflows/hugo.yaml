@@ -36,8 +36,13 @@ jobs:
           node-version: "20"
           cache: "npm"
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.14.0
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build with Hugo
         env:
@@ -54,6 +59,9 @@ jobs:
           check_html: true
           disable_external: true
           validator_ignore: "(Attribute “((x-|@|:)[^”]+)” not allowed|Element “style” not allowed|Start tag “a” seen but an element of the same type was already open)"
+
+      - name: Generate Pagefind search index
+        run: pnpm run pagefind
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
