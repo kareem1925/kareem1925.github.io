@@ -20,8 +20,8 @@
   }
 </style>
 
-<section class="quantum-hero relative w-full h-[800px] bg-slate-900 border-b border-primary-500/30 overflow-hidden flex items-center justify-center">
-  <div id="quantum-canvas-container" class="absolute inset-0 z-0 opacity-40">
+<section class="quantum-hero relative w-full h-[800px] bg-slate-950 border-b border-primary-500/20 overflow-hidden flex items-center justify-center">
+  <div id="quantum-canvas-container" class="absolute inset-0 z-0 opacity-40 transition-opacity duration-1000 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/10 via-slate-950 to-slate-950">
     <!-- Canvas injected by JS -->
   </div>
 
@@ -80,7 +80,12 @@
               {{ $avatar = resources.Get (printf "media/authors/%s" $author.avatar.filename) }}
             {{ end }}
             {{ if $avatar }}
-              <img class="relative w-56 h-56 rounded-full border-4 border-white/10 object-cover shadow-2xl" src="{{ $avatar.RelPermalink }}" alt="{{ $author.name.display }}">
+              {{ $avatar_webp := $avatar.Process "resize 448x448 webp" }}
+              <img class="relative w-56 h-56 rounded-full border-4 border-white/10 object-cover shadow-2xl" 
+                   src="{{ $avatar_webp.RelPermalink }}" 
+                   width="224" height="224"
+                   alt="{{ $author.name.display }}"
+                   loading="lazy">
             {{ else }}
                <div class="relative w-56 h-56 rounded-full border-4 border-white/10 bg-slate-800 flex items-center justify-center shadow-2xl">
                  <span class="text-4xl">👨‍💻</span>

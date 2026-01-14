@@ -207,6 +207,7 @@
   }
 
   function animate() {
+    if (!isIntersecting && !isProjected) return;
     ctx.clearRect(0, 0, width, height);
     drawMZI();
     photons.forEach(p => { p.update(); p.draw(); });
@@ -214,15 +215,30 @@
     animationId = requestAnimationFrame(animate);
   }
 
+  let isIntersecting = false;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isIntersecting = entry.isIntersecting;
+      if (isIntersecting) {
+        if (!animationId) animate();
+      } else {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    });
+  }, { threshold: 0.1 });
+
   window.addEventListener('resize', () => {
     resize();
     photons = [];
-    for (let i = 0; i < 40; i++) photons.push(new Photon());
+    const count = isProjected ? 15 : 40;
+    for (let i = 0; i < count; i++) photons.push(new Photon());
   });
 
   resize();
   for (let i = 0; i < 40; i++) photons.push(new Photon());
-  animate();
+  
+  observer.observe(container.parentElement);
 
   // Interactions
   const phaseBtn = document.getElementById('phase-shift-btn');
