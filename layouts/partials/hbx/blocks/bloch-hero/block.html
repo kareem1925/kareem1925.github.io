@@ -62,8 +62,15 @@
 {{ $blochJS := resources.Get "js/bloch-sphere.js" | resources.Fingerprint }}
 <script src="{{ $blochJS.RelPermalink }}" defer></script>
 
+
 {{/* QUANTUM UI EFFECTS */}}
+
 <style>
+/* Prevent Horizontal Scrollbar from Animated Elements */
+body {
+  overflow-x: hidden;
+}
+
 /* Quantum Teleportation Effect */
 .quantum-teleport-active {
   animation: quantum-dematerialize 0.8s forwards;
@@ -92,12 +99,12 @@
   right: 30px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, indigo, purple);
   border-radius: 50%;
   color: white;
   border: none;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 15px rgba(100, 100, 255, 0.5);
   z-index: 2147483647 !important; /* Max Z-Index */
   transition: all 0.3s ease;
   display: flex;
@@ -123,16 +130,129 @@
   fill: currentColor;
 }
 
+
+/* Schedule Button - Bottom Left */
+#schedule-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  height: 50px;
+  background: white;
+  color: #0f172a;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  z-index: 2147483647 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  gap: 10px;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: all 0.3s ease;
+  min-width: 48px; /* Touch target */
+}
+
+#schedule-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+
+/* Robot Agent */
+#robot-agent {
+  position: fixed;
+  bottom: 30px;
+  right: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 60px; /* Big Emoji */
+  cursor: grab;
+  z-index: 2147483647 !important;
+  transition: transform 0.1s;
+  touch-action: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+#robot-agent.dragging {
+  cursor: grabbing;
+  transition: none;
+  transform: scale(1.1) rotate(5deg);
+}
+
+#robot-agent:hover {
+    transform: scale(1.1);
+}
+
+/* Idle Animation - Hovering */
+@keyframes robot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+#robot-agent:not(.dragging):not(:hover) {
+    animation: robot-float 3s ease-in-out infinite;
+}
+
+/* Sci-Fi Speech Bubble */
+#fact-toast {
+  position: absolute;
+  bottom: 110%; /* Higher up */
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: #111;
+  color: #eee;
+  border: 1px solid cyan;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  width: 300px;
+  max-width: 90vw;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-family: 'Courier New', Courier, monospace; /* Robotic font */
+  font-size: 0.85rem;
+  z-index: 2147483648;
+  backdrop-filter: blur(5px);
+}
+
+#fact-toast.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Sci-fi arrow */
+#fact-toast::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  margin-left: -8px;
+  width: 16px;
+  height: 16px;
+  background: #111;
+  border-right: 1px solid cyan;
+  border-bottom: 1px solid cyan;
+  transform: rotate(45deg);
+}
 /* Entangled Cursor */
 .entangled-cursor {
   position: fixed;
   width: 12px;
   height: 12px;
-  background-color: rgba(99, 102, 241, 0.8);
+  background-color: cyan;
   border-radius: 50%;
   pointer-events: none;
   z-index: 2147483647 !important;
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.8), 0 0 20px rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 10px cyan, 0 0 20px purple;
   transition: transform 0.1s ease-out, opacity 0.2s;
 }
 
@@ -144,45 +264,233 @@
 <script>
 (function() {
     function initQuantumUI() {
-        // 1. Entangled Cursor
+        const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+        // 1. Entangled Cursor (Force Active)
         if (!document.querySelector('.entangled-cursor')) {
             const cursor = document.createElement('div');
             cursor.classList.add('entangled-cursor');
             document.body.appendChild(cursor);
             
-            // Start hidden until mouse moves
-            cursor.classList.add('hidden'); 
+            // Start visible
+            cursor.classList.remove('hidden'); 
 
             let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
             let cursorX = mouseX, cursorY = mouseY;
+            let isMoving = false;
 
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
                 cursor.classList.remove('hidden');
+                isMoving = true;
             });
 
             document.addEventListener('mouseout', () => {
                 cursor.classList.add('hidden');
+                isMoving = false;
             });
 
             function animateCursor() {
+                if (!isMoving && Math.abs(mouseX - cursorX) < 0.1 && Math.abs(mouseY - cursorY) < 0.1) {
+                     requestAnimationFrame(animateCursor); return; 
+                }
                 const dx = mouseX - cursorX;
                 const dy = mouseY - cursorY;
                 
                 cursorX += dx * 0.15;
                 cursorY += dy * 0.15;
                 
-                cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
+                cursor.style.transform = `translate3d(${cursorX - 6}px, ${cursorY - 6}px, 0)`;
                 requestAnimationFrame(animateCursor);
             }
             animateCursor();
         }
 
-        // 2. Teleport Button
+        // 2. Schedule Button
+        if (!document.getElementById('schedule-btn')) {
+            const btn = document.createElement('a');
+            btn.id = 'schedule-btn';
+            btn.href = 'https://calendly.com/kareemessafty/30min'; // UPDATED LINK
+            btn.target = '_blank';
+            btn.setAttribute('aria-label', 'Schedule a meeting');
+            btn.innerHTML = `
+                <span style="font-size: 20px;">📅</span>
+                <span class="hidden md:inline">Schedule</span>
+            `;
+            document.body.appendChild(btn);
+        }
+
+        // 3. ROBOT AGENT (Draggable & Nerdy)
+        if (!document.getElementById('robot-agent')) {
+            const robot = document.createElement('div');
+            robot.id = 'robot-agent';
+            robot.innerHTML = `
+                <div id="robot-emoji">🤖</div>
+                <div id="fact-toast">Processing... Click me for data.</div>
+            `;
+            document.body.appendChild(robot);
+
+            const toast = robot.querySelector('#fact-toast');
+            
+            // --- Drag Logic ---
+            let isDragging = false;
+            let startX, startY, initialLeft, initialTop;
+
+            robot.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                robot.classList.add('dragging');
+                
+                // Calculate offset relative to viewport
+                const rect = robot.getBoundingClientRect();
+                startX = e.clientX;
+                startY = e.clientY;
+                
+                // Get current computed position
+                initialLeft = rect.left;
+                initialTop = rect.top;
+
+                // Stop text selection
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+
+                // Set new position directly via style (removing 'bottom/right' constraints)
+                robot.style.bottom = 'auto';
+                robot.style.right = 'auto';
+                robot.style.left = `${initialLeft + dx}px`;
+                robot.style.top = `${initialTop + dy}px`;
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    robot.classList.remove('dragging');
+                }
+            });
+
+            // --- Fact Logic ---
+            async function fetchFact() {
+                if (isDragging) return; 
+
+                toast.innerHTML = '<span style="color:#6366f1">●</span> Accessing Quantum Database...';
+                toast.classList.add('visible');
+
+                // 200+ Curated Topics (Quantum, ML, Physics, Math, CS)
+                const topics = [
+                    // --- Quantum Computing & Information ---
+                    'Quantum_computing', 'Qubit', 'Quantum_entanglement', 'Quantum_superposition', 'Quantum_teleportation',
+                    'Quantum_gate', 'Quantum_circuit', 'Quantum_algorithm', 'Shor%27s_algorithm', 'Grover%27s_algorithm',
+                    'Quantum_error_correction', 'Quantum_decoherence', 'Quantum_supremacy', 'Adiabatic_quantum_computation', 'Topological_quantum_computer',
+                    'Quantum_dot', 'Superconducting_quantum_computing', 'Trapped_ion_quantum_computer', 'Quantum_annealing', 'Quantum_key_distribution',
+                    'Quantum_cryptography', 'Post-quantum_cryptography', 'Quantum_network', 'Quantum_internet', 'Quantum_simulator',
+                    'Bloch_sphere', 'Density_matrix', 'Bell_state', 'No-cloning_theorem', 'Quantum_tunnelling',
+                    'Josephson_effect', 'SQUID', 'Transmon', 'Rabi_cycle', 'Quantum_fidelty',
+                    'DiVincenzo%27s_criteria', 'Quantum_volume', 'NISQ', 'Quantum_machine_learning', 'Quantum_image_processing',
+                    'Quantum_sensing', 'Quantum_metrology', 'Quantum_clock', 'Quantum_radar', 'Blind_quantum_computing',
+                    'One-way_quantum_computer', 'Cluster_state', 'Measurement-based_quantum_computing', 'Quantum_logic_gate', 'Toffoli_gate',
+                    'Hadamard_transform', 'Quantum_Fourier_transform', 'Phase_estimation_algorithm', 'HHL_algorithm', 'VQE',
+                    'QAOA', 'Quantum_walk', 'Boson_sampling', 'Linear_optical_quantum_computing', 'Spin_qubit',
+                    
+                    // --- Quantum Physics & Mechanics ---
+                    'Quantum_mechanics', 'Schrödinger_equation', 'Wave_function', 'Heisenberg_uncertainty_principle', 'Wave%E2%80%93particle_duality',
+                    'Double-slit_experiment', 'Standard_Model', 'Higgs_boson', 'Fermion', 'Boson',
+                    'Photon', 'Electron', 'Neutrino', 'Quark', 'Gluon',
+                    'Quantum_field_theory', 'Quantum_electrodynamics', 'Quantum_chromodynamics', 'Electroweak_interaction', 'Strong_interaction',
+                    'Weak_interaction', 'Graviton', 'String_theory', 'M-theory', 'Loop_quantum_gravity',
+                    'Planck_constant', 'Planck_length', 'Black_body_radiation', 'Photoelectric_effect', 'Compton_scattering',
+                    'Stern%E2%80%93Gerlach_experiment', 'Bell%27s_theorem', 'EPR_paradox', 'Quantum_nonlocality', 'Hidden-variable_theory',
+                    'Copenhagen_interpretation', 'Many-worlds_interpretation', 'Pilot_wave_theory', 'Quantum_Zeno_effect', 'Casimir_effect',
+                    'Aharonov%E2%80%93Bohm_effect', 'Quantum_Hall_effect', 'Fractional_quantum_Hall_effect', 'Superconductivity', 'Superfluidity',
+                    'Bose%E2%80%93Einstein_condensate', 'Fermionic_condensate', 'Cooper_pair', 'Meissner_effect', 'Flux_quantization',
+                    'Spontaneous_symmetry_breaking', 'Renormalization', 'Path_integral_formulation', 'Feynman_diagram', 'Hamiltonian_(quantum_mechanics)',
+
+                    // --- Machine Learning & AI ---
+                    'Machine_learning', 'Artificial_intelligence', 'Deep_learning', 'Neural_network', 'Artificial_neural_network',
+                    'Backpropagation', 'Activation_function', 'Gradient_descent', 'Stochastic_gradient_descent', 'Loss_function',
+                    'Overfitting', 'Underfitting', 'Regularization_(mathematics)', 'Hyperparameter_optimization', 'Cross-validation_(statistics)',
+                    'Supervised_learning', 'Unsupervised_learning', 'Reinforcement_learning', 'Semi-supervised_learning', 'Transfer_learning',
+                    'Convolutional_neural_network', 'Recurrent_neural_network', 'Long_short-term_memory', 'Gated_recurrent_unit', 'Transformer_(machine_learning_model)',
+                    'Attention_(machine_learning)', 'Large_language_model', 'Generative_pre-trained_transformer', 'BERT_(language_model)', 'Diffusion_model',
+                    'Generative_adversarial_network', 'Variational_autoencoder', 'Autoencoder', 'Support_vector_machine', 'Decision_tree',
+                    'Random_forest', 'Gradient_boosting', 'XGBoost', 'k-nearest_neighbors_algorithm', 'k-means_clustering',
+                    'Principal_component_analysis', 't-SNE', 'UMAP', 'Dimensionality_reduction', 'Feature_engineering',
+                    'Natural_language_processing', 'Computer_vision', 'Object_detection', 'Image_segmentation', 'Speech_recognition',
+                    'Reinforcement_learning_from_human_feedback', 'Prompt_engineering', 'Explainable_artificial_intelligence', 'Federated_learning', 'Edge_AI',
+
+                    // --- Mathematics & Theory ---
+                    'Linear_algebra', 'Eigenvalues_and_eigenvectors', 'Matrix_decomposition', 'Singular_value_decomposition', 'Tensor_product',
+                    'Hilbert_space', 'Vector_space', 'Inner_product_space', 'Hermitian_matrix', 'Unitary_matrix',
+                    'Probability_theory', 'Bayes%27_theorem', 'Markov_chain', 'Monte_Carlo_method', 'Information_theory',
+                    'Entropy_(information_theory)', 'Kullback%E2%80%93Leibler_divergence', 'Complexity_theory', 'P_versus_NP_problem', 'Big_O_notation',
+                    'Turing_machine', 'Halting_problem', 'Church%E2%80%93Turing_thesis', 'Lambda_calculus', 'Graph_theory',
+                    'Topology', 'Category_theory', 'Group_theory', 'Lie_group', 'Manifold',
+                    'Differential_geometry', 'Calculus_of_variations', 'Fourier_transform', 'Laplace_transform', 'Differential_equation',
+                    'Optimization_problem', 'Convex_optimization', 'Game_theory', 'Nash_equilibrium', 'Chaos_theory',
+
+                    // --- Physics & Cosmology ---
+                    'General_relativity', 'Special_relativity', 'Spacetime', 'Black_hole', 'Event_horizon',
+                    'Hawking_radiation', 'Gravitational_wave', 'Dark_matter', 'Dark_energy', 'Big_Bang',
+                    'Cosmic_microwave_background', 'Inflation_(cosmology)', 'Multiverse', 'Entropy', 'Thermodynamics',
+                    'Maxwell%27s_equations', 'Electromagnetism', 'Fluid_dynamics', 'Navier%E2%80%93Stokes_equations', 'Plasma_(physics)',
+                    'Nuclear_fusion', 'Fission', 'Particle_accelerator', 'Large_Hadron_Collider', 'Higgs_field',
+                    
+                    // --- Miscellaneous Sci-Tech ---
+                    'Nanotechnology', 'Graphene', 'Carbon_nanotube', 'Metamaterial', 'Photonic_crystal',
+                    'Optics', 'Laser', 'Holography', 'Fiber_optics', 'Semiconductor',
+                    'Transistor', 'Moore%27s_law', 'Neuromorphic_engineering', 'Brain%E2%80%93computer_interface', 'Singularity_(technology)',
+                    'Robotics', 'Cybernetics', 'Control_theory', 'Signal_processing', 'Cryptography'
+                ];
+                
+                try {
+                    const topic = topics[Math.floor(Math.random() * topics.length)];
+                    const response = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${topic}`);
+                    const data = await response.json();
+                    
+                    if (data.extract) {
+                        let fact = data.extract;
+                        if (fact.length > 180) fact = fact.substring(0, 180) + '...';
+                        
+                        // Robotic Formatting
+                        toast.innerHTML = `
+                            <div style="border-bottom: 1px solid #334155; padding-bottom: 5px; margin-bottom: 5px; font-weight: bold; color: #6366f1;">
+                                📡 TOPIC: ${data.title.toUpperCase()}
+                            </div>
+                            <div style="line-height: 1.4;">${fact}</div>
+                            <div style="margin-top: 8px; font-size: 0.75rem; text-align: right;">
+                                <a href="${data.content_urls.desktop.page}" target="_blank" style="color: #94a3b8; text-decoration: none;">[SOURCE DATA]</a>
+                            </div>
+                        `;
+                    }
+                } catch (e) {
+                    toast.innerHTML = "⚠️ CONNECTION ERROR: Quantum noise detected.";
+                }
+            }
+            
+            robot.addEventListener('click', (e) => {
+                if (!isDragging) fetchFact();
+            });
+
+            // Hide toast after delay
+            let hideTimeout;
+            robot.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => {
+                    toast.classList.remove('visible');
+                }, 1000); // 1 second to disappear as requested
+            });
+            robot.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+        }
+
+        // 4. Teleport Button
         if (!document.getElementById('teleport-btn')) {
             const teleportBtn = document.createElement('button');
             teleportBtn.id = 'teleport-btn';
+            teleportBtn.setAttribute('aria-label', 'Scroll to Top');
             teleportBtn.innerHTML = `
                 <svg viewBox="0 0 24 24">
                     <path d="M12 2L4.5 9h5v11h5V9h5L12 2z"/>
@@ -190,18 +498,22 @@
             `;
             document.body.appendChild(teleportBtn);
 
-            // Check scroll on window AND document
-            function checkScroll() {
-                if (window.scrollY > 300 || document.documentElement.scrollTop > 300) {
-                    teleportBtn.classList.add('visible');
-                } else {
-                    teleportBtn.classList.remove('visible');
+            let isScrolling = false;
+            function onScroll() {
+                if (!isScrolling) {
+                    window.requestAnimationFrame(() => {
+                        if (window.scrollY > 300 || document.documentElement.scrollTop > 300) {
+                            teleportBtn.classList.add('visible');
+                        } else {
+                            teleportBtn.classList.remove('visible');
+                        }
+                        isScrolling = false;
+                    });
+                    isScrolling = true;
                 }
             }
+            window.addEventListener('scroll', onScroll, { passive: true });
             
-            window.addEventListener('scroll', checkScroll);
-            checkScroll(); // Initial check
-
             teleportBtn.addEventListener('click', () => {
                 document.body.classList.add('quantum-teleport-active');
                 setTimeout(() => {
