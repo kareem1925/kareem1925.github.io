@@ -1,0 +1,89 @@
+{{ define "main" }}
+<div class="universal-wrapper" style="text-align: center; padding: 100px 20px; min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+  <h1 style="font-size: 4rem; margin-bottom: 2rem;">404 Superposition</h1>
+  
+  <div id="schrodinger-box" style="
+      width: 200px; 
+      height: 200px; 
+      background: #1e293b; 
+      border: 4px dashed #6366f1; 
+      margin: 0 auto 30px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  ">
+    <div id="box-content" style="font-size: 80px;">📦</div>
+    <div id="box-label" style="position: absolute; bottom: -40px; width: 100%; color: #64748b; font-family: monospace;">State: |Unobserved⟩</div>
+  </div>
+
+  <p id="observation-text" style="font-size: 1.25rem; color: #475569; max-width: 600px; margin: 0 auto 30px;">
+    The page you are looking for exists in a quantum superposition of being <strong>Found</strong> and <strong>Not Found</strong>.
+    <br><br>
+    You must observe the box to collapse the wavefunction.
+  </p>
+
+  <button id="observe-btn" onclick="collapseWavefunction()" style="
+      background: #6366f1; 
+      color: white; 
+      border: none; 
+      padding: 12px 24px; 
+      border-radius: 8px; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      transition: transform 0.2s;
+  ">
+    👁️ Observe State
+  </button>
+
+  <a href="/" id="home-tunnel" style="display: none; margin-top: 30px; color: #6366f1; text-decoration: none; font-weight: bold;">
+    ↩ Tunnel back to Safety
+  </a>
+
+</div>
+
+<script>
+function collapseWavefunction() {
+    const box = document.getElementById('schrodinger-box');
+    const content = document.getElementById('box-content');
+    const label = document.getElementById('box-label');
+    const text = document.getElementById('observation-text');
+    const btn = document.getElementById('observe-btn');
+    const home = document.getElementById('home-tunnel');
+
+    // Observation Effect (Shake)
+    box.style.animation = 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both';
+
+    setTimeout(() => {
+        // Collapse to "Dead" (404)
+        box.style.animation = '';
+        box.style.border = '4px solid #ef4444';
+        box.style.background = '#fee2e2';
+        content.innerHTML = '🙀'; // Dead/Shocked Cat
+        label.innerHTML = 'State: |Page Not Found⟩';
+        label.style.color = '#ef4444';
+        
+        text.innerHTML = "<strong>Measurement Complete.</strong><br>Unfortunately, the page collapsed into the Void. The wave function returned 404.";
+        
+        btn.style.display = 'none';
+        home.style.display = 'inline-block';
+        
+    }, 500);
+}
+
+// Add shake animation
+const style = document.createElement('style');
+style.innerHTML = `
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+`;
+document.head.appendChild(style);
+</script>
+{{ end }}

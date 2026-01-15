@@ -61,3 +61,168 @@
 {{/* Load Bloch Sphere Script */}}
 {{ $blochJS := resources.Get "js/bloch-sphere.js" | resources.Fingerprint }}
 <script src="{{ $blochJS.RelPermalink }}" defer></script>
+
+{{/* QUANTUM UI EFFECTS */}}
+<style>
+/* Quantum Teleportation Effect */
+.quantum-teleport-active {
+  animation: quantum-dematerialize 0.8s forwards;
+}
+
+.quantum-materialize {
+  animation: quantum-materialize 0.8s forwards;
+}
+
+@keyframes quantum-dematerialize {
+  0% { transform: scale(1); filter: blur(0); opacity: 1; }
+  50% { transform: scale(1.1); filter: blur(4px) hue-rotate(90deg); opacity: 0.5; }
+  100% { transform: scale(1.5); filter: blur(10px) hue-rotate(180deg); opacity: 0; }
+}
+
+@keyframes quantum-materialize {
+  0% { transform: scale(1.5); filter: blur(10px) hue-rotate(180deg); opacity: 0; }
+  50% { transform: scale(1.1); filter: blur(4px) hue-rotate(90deg); opacity: 0.5; }
+  100% { transform: scale(1); filter: blur(0); opacity: 1; }
+}
+
+/* Teleport Button */
+#teleport-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 50%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+  z-index: 2147483647 !important; /* Max Z-Index */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#teleport-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#teleport-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.8);
+}
+
+#teleport-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Entangled Cursor */
+.entangled-cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(99, 102, 241, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2147483647 !important;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.8), 0 0 20px rgba(139, 92, 246, 0.6);
+  transition: transform 0.1s ease-out, opacity 0.2s;
+}
+
+.entangled-cursor.hidden {
+  opacity: 0;
+}
+</style>
+
+<script>
+(function() {
+    function initQuantumUI() {
+        // 1. Entangled Cursor
+        if (!document.querySelector('.entangled-cursor')) {
+            const cursor = document.createElement('div');
+            cursor.classList.add('entangled-cursor');
+            document.body.appendChild(cursor);
+            
+            // Start hidden until mouse moves
+            cursor.classList.add('hidden'); 
+
+            let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+            let cursorX = mouseX, cursorY = mouseY;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursor.classList.remove('hidden');
+            });
+
+            document.addEventListener('mouseout', () => {
+                cursor.classList.add('hidden');
+            });
+
+            function animateCursor() {
+                const dx = mouseX - cursorX;
+                const dy = mouseY - cursorY;
+                
+                cursorX += dx * 0.15;
+                cursorY += dy * 0.15;
+                
+                cursor.style.transform = `translate(${cursorX - 6}px, ${cursorY - 6}px)`;
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+        }
+
+        // 2. Teleport Button
+        if (!document.getElementById('teleport-btn')) {
+            const teleportBtn = document.createElement('button');
+            teleportBtn.id = 'teleport-btn';
+            teleportBtn.innerHTML = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L4.5 9h5v11h5V9h5L12 2z"/>
+                </svg>
+            `;
+            document.body.appendChild(teleportBtn);
+
+            // Check scroll on window AND document
+            function checkScroll() {
+                if (window.scrollY > 300 || document.documentElement.scrollTop > 300) {
+                    teleportBtn.classList.add('visible');
+                } else {
+                    teleportBtn.classList.remove('visible');
+                }
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Initial check
+
+            teleportBtn.addEventListener('click', () => {
+                document.body.classList.add('quantum-teleport-active');
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    document.documentElement.scrollTop = 0;
+                    document.body.scrollTop = 0;
+                    
+                    document.body.classList.remove('quantum-teleport-active');
+                    document.body.classList.add('quantum-materialize');
+                    setTimeout(() => {
+                        document.body.classList.remove('quantum-materialize');
+                    }, 800);
+                }, 800);
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initQuantumUI);
+    } else {
+        initQuantumUI();
+    }
+})();
+</script>
