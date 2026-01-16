@@ -91,29 +91,64 @@
    Research focus & Skills have bg #f8fafc (near white)
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Research focus (light background) */
-#research-focus .prose,
-#research-focus .prose p,
-#research-focus .prose li,
-#research-focus .prose ul,
-#research-focus .prose ol {
+/* About section (light background #f8fafc) - force dark text */
+#about .prose,
+#about .prose p,
+#about .prose li,
+#about .prose ul,
+#about .prose ol,
+#about p,
+#about li,
+#about ul,
+#about span,
+#about a {
   color: #374151 !important;
 }
 
-#research-focus .prose strong,
-#research-focus .prose b {
+#about .prose strong,
+#about .prose b,
+#about strong, 
+#about b {
   color: #1f2937 !important;
 }
 
-#research-focus .prose h1,
-#research-focus .prose h2,
-#research-focus .prose h3,
-#research-focus .prose h4 {
+#about .prose h1,
+#about .prose h2,
+#about .prose h3,
+#about .prose h4,
+#about h1,
+#about h2,
+#about h3,
+#about h4 {
   color: #111827 !important;
 }
 
-#research-focus .text-gray-900 {
+#about .text-gray-900,
+#about [class*="text-gray-"] {
   color: #111827 !important;
+}
+
+/* Featured Publications section - fix the section title in light mode */
+/* The title is a div with text-gray-900 dark:text-white classes */
+section#papers .mb-6.text-3xl,
+section#papers .mb-6.font-bold,
+#papers .mb-6.text-3xl,
+#papers .mb-6.font-bold,
+#papers .text-gray-900 {
+  color: #111827 !important;
+}
+
+/* Restore card headings - cards have dark background so need light text */
+section#papers .group h1,
+section#papers .group h2,
+section#papers .group h3,
+section#papers article h1,
+section#papers article h2,
+section#papers article h3,
+section#papers .card h1,
+section#papers .card h2,
+section#papers .card h3 {
+  color: inherit !important;
 }
 
 /* Skills section - LIGHT BACKGROUND (#f1f5f9) needs DARK text */

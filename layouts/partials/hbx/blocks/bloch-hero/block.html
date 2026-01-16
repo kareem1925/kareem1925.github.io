@@ -243,22 +243,7 @@ body {
   border-bottom: 1px solid cyan;
   transform: rotate(45deg);
 }
-/* Entangled Cursor */
-.entangled-cursor {
-  position: fixed;
-  width: 12px;
-  height: 12px;
-  background-color: cyan;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 2147483647 !important;
-  box-shadow: 0 0 10px cyan, 0 0 20px purple;
-  transition: transform 0.1s ease-out, opacity 0.2s;
-}
 
-.entangled-cursor.hidden {
-  opacity: 0;
-}
 </style>
 
 <script>
@@ -266,46 +251,8 @@ body {
     function initQuantumUI() {
         const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
 
-        // 1. Entangled Cursor (Force Active)
-        if (!document.querySelector('.entangled-cursor')) {
-            const cursor = document.createElement('div');
-            cursor.classList.add('entangled-cursor');
-            document.body.appendChild(cursor);
-            
-            // Start visible
-            cursor.classList.remove('hidden'); 
+        // 1. Entangled Cursor (REMOVED)
 
-            let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-            let cursorX = mouseX, cursorY = mouseY;
-            let isMoving = false;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                cursor.classList.remove('hidden');
-                isMoving = true;
-            });
-
-            document.addEventListener('mouseout', () => {
-                cursor.classList.add('hidden');
-                isMoving = false;
-            });
-
-            function animateCursor() {
-                if (!isMoving && Math.abs(mouseX - cursorX) < 0.1 && Math.abs(mouseY - cursorY) < 0.1) {
-                     requestAnimationFrame(animateCursor); return; 
-                }
-                const dx = mouseX - cursorX;
-                const dy = mouseY - cursorY;
-                
-                cursorX += dx * 0.15;
-                cursorY += dy * 0.15;
-                
-                cursor.style.transform = `translate3d(${cursorX - 6}px, ${cursorY - 6}px, 0)`;
-                requestAnimationFrame(animateCursor);
-            }
-            animateCursor();
-        }
 
         // 2. Schedule Button
         if (!document.getElementById('schedule-btn')) {
